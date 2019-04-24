@@ -54,35 +54,39 @@ class Statistics:
             PcCount = "{:<4}".format(self.pc*4)         #This line is to help with the printout below - PC counts will always be 4 digits
 
             if((self.name  == "addi") | (self.name == "ori")):
-                print("Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " + multiS())
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +slowS())
             elif((self.name == "slt") | (self.name == "sltu")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + "slt $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + self.name+" $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles "+ multiS())
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
             elif((self.name == "add") | (self.name == "or") | (self.name == "sub") | (self.name == "and") | (self.name == "xor") | (self.name == "addu") ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles "+ multiS())
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
             elif((self.name == "sll") | (self.name == "slr")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles "  + multiS())
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS() )
             elif((self.name == "beq") | (self.name == "bne")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles")
+                print("Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles " + multiS())
                 if((s == "0") and (t == "0")): # Check if beq is at the end of the program
-                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +slowS())
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
             elif(self.name == "sw" ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles" )
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles " + multiS() )
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +slowS())
             elif(self.name == "lw"):
-                print("Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles" )
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
-            elif(self.name == "lui"):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" "+ PcCount+ "lui $" + t +", {:<4}".format(hex(int(imm))) + "   Taking 4 cycle")
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle")
+                print("Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles "+ multiS() )
+                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +slowS())
             else:
                 print("")
             print("\n")
-              
+
+    def print_multiState(self):
+        return "F : " + self.multiS[length(self.multiS)-1] + " D : " + self.multiS[length(self.multiS)-2] + " E : " + self.multiS[length(self.multiS)-3] + " M : " + self.multiS[length(self.multiS)-4] + " W : " + self.multiS[length(self.multiS)-5]
+    def print_slowState(self):
+        return "F : " + self.slowS[length(self.slowS)-1] + " D : " + self.slowS[length(self.slowS)-2] + " E : " + self.slowS[length(self.slowS)-3] + " M : " + self.slowS[length(self.slowS)-4] + " W : " + self.slowS[length(self.slowS)-5]
+    def print_fastState(self):
+        return "F : " + self.fastS[length(self.fastS)-1] + " D : " + self.fastS[length(self.fastS)-2] + " E : " + self.fastS[length(self.fastS)-3] + " M : " + self.fastS[length(self.fastS)-4] + " W : " + self.fastS[length(self.fastS)-5]
+          
 #The function below will print out the values stored into the registers and memory locations at the end of the the program
     def finalOutput(self, reg, mem, PC):
         print("\n===============STATISTICS===============\n")
