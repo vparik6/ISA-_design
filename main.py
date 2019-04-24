@@ -29,7 +29,10 @@ class Statistics:
          self.flushCount = 0      #keeps track of flush
          self.stallCount = 0      #keeps track of stall count
          self.debugMode = debugMode
-         
+         self.multiS = []
+         self.slowS = []
+         self.fastS = []
+            
     def log(self,I,name,cycle,slowCycle,fastCycle,pc):
         self.I = I
         self.name = name
