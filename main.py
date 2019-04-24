@@ -32,6 +32,11 @@ class Statistics:
          self.multiS = []
          self.slowS = []
          self.fastS = []
+         for i in range(4):
+             self.multiS.append(" ")
+             self.slowS.append(" ")
+             self.fastS.append(" ")
+             
             
     def log(self,I,name,cycle,slowCycle,fastCycle,pc):
         self.I = I
@@ -55,7 +60,9 @@ class Statistics:
             t = str(int(self.I[11:16],2))        #read in ther other register - Rt
             d = str(int(self.I[16:21] ,2))       #reads in the register RD
             PcCount = "{:<4}".format(self.pc*4)         #This line is to help with the printout below - PC counts will always be 4 digits
-
+            
+            self.multiS.append(self.name)
+            self.slowS.append(self.name)
             if((self.name  == "addi") | (self.name == "ori")):
                 print("Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " + multiS())
                 print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +slowS())
@@ -145,17 +152,24 @@ class Statistics:
                 if((pRd == cRs) | (pRd == cRt)): 
                    self.NOPcount += 2
                    self.DataHazardSlow +=2
+                   self.slowS.append("NOP")
+                   self.slowS.append("NOP")                    
                    if(self.debugMode == 1):
                       print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")
                       print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")
-                elif((ppRd == cRs) | (ppRd == cRt)):
-                    self.NOPcount +=1
-                    self.DataHazardSlow +=1
-                    if(self.debugMode == 1):
-                        print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")   
+                if((ppRd != pRs)|(ppRd != pRt)):
+                    if((ppRd == cRs) | (ppRd == cRt)):
+                        self.NOPcount +=1
+                        self.DataHazardSlow +=1
+                        self.slowS.append("NOP")
+                        if(self.debugMode == 1):
+                            print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")   
             else:  #if the curent instruction is beq or bne add 3 NOPs
                 self.NOPcount += 3
                 self.ControlHazardSlow += 3
+                self.slowS.append("NOP")
+                self.slowS.append("NOP")
+                self.slowS.append("NOP")
                 if(self.debugMode == 1):
                     print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 1 cycle")
                     print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 1 cycle")
