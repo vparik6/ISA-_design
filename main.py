@@ -63,52 +63,68 @@ class Statistics:
             
             self.multiS.append(self.name)
             self.slowS.append(self.name)
+            self.fastS.append(self.name)
+            print("\n===DEBUG MODE: INSTRUCTIONS CYCLE BY CYCLE===")
             if((self.name  == "addi") | (self.name == "ori")):
-                print("Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " + multiS())
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +slowS())
+                print("Multi-Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " + self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "slt") | (self.name == "sltu")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + self.name+" $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles "+ multiS())
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + self.name+" $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles "+ self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "add") | (self.name == "or") | (self.name == "sub") | (self.name == "and") | (self.name == "xor") | (self.name == "addu") ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles "+ multiS())
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles "+ self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "sll") | (self.name == "slr")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles "  + multiS())
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS() )
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles "  + self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState() )
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "beq") | (self.name == "bne")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles " + multiS())
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles " + self.print_multiState())
                 if((s == "0") and (t == "0")): # Check if beq is at the end of the program
-                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +slowS())
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+slowS())
+                    print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +self.print_slowState())
+                    print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycle " +self.print_fastState())
+                else:
+                    print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                    print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif(self.name == "sw" ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles " + multiS() )
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +slowS())
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles " + self.print_multiState() )
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif(self.name == "lw"):
-                print("Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles "+ multiS() )
-                print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +slowS())
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles "+ self.print_multiState() )
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             else:
                 print("")
             print("\n")
 
+	# Functions to print the pipeline stages each instruction is in
     def print_multiState(self):
-        return "F : " + self.multiS[length(self.multiS)-1] + " D : " + self.multiS[length(self.multiS)-2] + " E : " + self.multiS[length(self.multiS)-3] + " M : " + self.multiS[length(self.multiS)-4] + " W : " + self.multiS[length(self.multiS)-5]
+        return "F : " + self.multiS[len(self.multiS)-1] + " D : " + self.multiS[len(self.multiS)-2] + " E : " + self.multiS[len(self.multiS)-3] + " M : " + self.multiS[len(self.multiS)-4] + " W : " + self.multiS[len(self.multiS)-5]
     def print_slowState(self):
-        return "F : " + self.slowS[length(self.slowS)-1] + " D : " + self.slowS[length(self.slowS)-2] + " E : " + self.slowS[length(self.slowS)-3] + " M : " + self.slowS[length(self.slowS)-4] + " W : " + self.slowS[length(self.slowS)-5]
+        return "F : " + self.slowS[len(self.slowS)-1] + " D : " + self.slowS[len(self.slowS)-2] + " E : " + self.slowS[len(self.slowS)-3] + " M : " + self.slowS[len(self.slowS)-4] + " W : " + self.slowS[len(self.slowS)-5]
     def print_fastState(self):
-        return "F : " + self.fastS[length(self.fastS)-1] + " D : " + self.fastS[length(self.fastS)-2] + " E : " + self.fastS[length(self.fastS)-3] + " M : " + self.fastS[length(self.fastS)-4] + " W : " + self.fastS[length(self.fastS)-5]
+        return "F : " + self.fastS[len(self.fastS)-1] + " D : " + self.fastS[len(self.fastS)-2] + " E : " + self.fastS[len(self.fastS)-3] + " M : " + self.fastS[len(self.fastS)-4] + " W : " + self.fastS[len(self.fastS)-5]
           
 #The function below will print out the values stored into the registers and memory locations at the end of the the program
     def finalOutput(self, reg, mem, PC):
         print("\n===============STATISTICS===============\n")
+        print("===MULTI-CYCLE===")
+        print("Total # of cycles: " + str(self.cycle))
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC)+ "Dynamic Instruction Breakdown: ")
+        print("         " + str(self.threeCycles) + " instructions take 3 cycles" )  
+        print("         " + str(self.fourCycles) + " instructions take 4 cycles" )
+        print("         " + str(self.fiveCycles) + " instructions take 5 cycles\n" )
+        
         print("===SLOW PIPELINE===")
         print("Total # of cycles: " + str(4) + " + " + str(self.DIC) + " + " + str(self.NOPcount) + " = " + str(self.DIC+4+self.NOPcount))
         print("Total Instruction entering pipeline = {0:<4}".format(self.DIC))
         print("Finishing up the last instruction: 4")
         print("Total NOPs = {:<3}".format(self.NOPcount))
-        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC)+ "Dynamic Instruction Breakdown: ")
-        print("         " + str(self.threeCycles) + " instructions take 3 cycles" )  
-        print("         " + str(self.fourCycles) + " instructions take 4 cycles" )
-        print("         " + str(self.fiveCycles) + " instructions take 5 cycles" )
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC))
         print("NOP Breakdown: ")
         print("         " + str(self.DataHazardSlow) + " Data Hazards")
         print("         " + str(self.ControlHazardSlow) + " Control Hazards")
@@ -122,23 +138,17 @@ class Statistics:
         print("Total Instruction entering pipeline = {0:<4}".format(self.DIC))
         print("Finishing up the last instruction: 4")
         #print("Total NOPs = {:<3}".format(self.NOPcount))
-        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC)+ "Dynamic Instruction Breakdown: ")
-        print("         " + str(self.threeCycles) + " instructions take 3 cycles" )  
-        print("         " + str(self.fourCycles) + " instructions take 4 cycles" )
-        print("         " + str(self.fiveCycles) + " instructions take 5 cycles" )
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC))
         print("Delay Breakdown: ")
         print("         " + str(self.DataHazardFast) + " Data Hazards")
         print("         " + str(self.ControlHazardFast) + " Control Hazards")
-        #print("Multi-Cycle Comparison: " + str((MULTICYCLE CALCULATION) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
-        print("Slow Pipeline Comparison: " + str((self.DIC+4+self.NOPcount) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
+        print("Multi-Cycle Comparison: Fast Pipeline is " + str((self.cycle) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
+        print("Slow Pipeline Comparison: Fast Pipeline is " + str((self.DIC+4+self.NOPcount) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
         
-        print("\n===OTHER TESTING===")
-        print("Slow Pipeline Cycles: " + str(self.slowCycle))
-        print("Fast Pipeline Cycles: " + str(self.fastCycle))
     #check for hazards and update NOPcount, stallCount, flushCount and other statistics
     def slow_pipe(self, currentInst, prevInst, prevPrevInst):
         cRs = currentInst[6:11]     #current instruction register Rs
-        cRt = currentInst[11:16]    #currentcurreint register Rt
+        cRt = currentInst[11:16]    #currentcurreint register Rt 
         if ((prevInst != "")  & (prevInst[0:6] != "000000")):        #if the previous instruction is R-type or I-type choose pRd appropriately
             pRd=prevInst[11:16]      
         else :
@@ -155,15 +165,16 @@ class Statistics:
                    self.slowS.append("NOP")
                    self.slowS.append("NOP")                    
                    if(self.debugMode == 1):
-                      print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")
-                      print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")
-                if((ppRd != pRs)|(ppRd != pRt)):
+                      print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 2 cycles")
+                   self.slowCycle +=2
+                elif((ppRd != prevInst[6:11])|(ppRd != prevInst[11:16])):
                     if((ppRd == cRs) | (ppRd == cRt)):
                         self.NOPcount +=1
                         self.DataHazardSlow +=1
                         self.slowS.append("NOP")
                         if(self.debugMode == 1):
-                            print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")   
+                            print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 1 cycle") 
+                        self.slowCycle +=1
             else:  #if the curent instruction is beq or bne add 3 NOPs
                 self.NOPcount += 3
                 self.ControlHazardSlow += 3
@@ -171,9 +182,8 @@ class Statistics:
                 self.slowS.append("NOP")
                 self.slowS.append("NOP")
                 if(self.debugMode == 1):
-                    print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 1 cycle")
-                    print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 1 cycle")
-                    print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 1 cycle")
+                    print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 3 cycles")
+                self.slowCycle += 3
         
     def fast_pipe(self, currentInst, prevInst, prevPrevInst):
         cRs = currentInst[6:11]     #current instruction register Rs
@@ -192,19 +202,24 @@ class Statistics:
         if(prevInst != ""): 
             if((currentInst[0:6] == "000100") | (currentInst[0:6] == "000101")): # Calculate branch hazard
                 self.ControlHazardFast += 1 #if the curent instruction is beq or bne, there is a delay of 1 cycle
+                self.fastS.append("Delay")
                 if(self.debugMode == 1):
-                    print("Fast Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Control Hazard: Taken branch delay taking 1 cycle")
+                    print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Control Hazard: Taken branch delay taking 1 cycle")
+                self.fastCycle += 1
                 if((pRd == cRs) | (pRd == cRt)): # Check if previous instruction uses same registers as the branch instruction
                     self.CompBranchHazard = True
                     self.DataHazardFast +=1
+                    self.fastS.append("Delay")
                     if(self.debugMode == 1):
-                        print("Fast Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: Compute-branch delay taking 1 cycle")
+                        print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: Compute-branch delay taking 1 cycle")
+                    self.fastCycle += 1
             elif(prevInst[0:6] == "100011"): # lw-use hazard
                 if((pRd == cRs) | (pRd == cRt)): # Check if the current instruction uses the same registers as the previous LW instruction
                     self.DataHazardFast +=1
+                    self.fastS.append("Delay")
                     if(self.debugMode == 1):
-                        print("Fast Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: LW-use delay taking 1 cycle")
-            
+                        print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: LW-use delay taking 1 cycle")
+                    self.fastCycle += 1
             # Still need to get output for the fast pipeline implementation
             #Keep track of which instructions are still in a 5-stage pipeline
             #Add additional information for what hazards occur and what forward path is used
@@ -233,7 +248,7 @@ def disassemble(instructions, debugMode):
             finished = True
             stats.finalOutput(reg, mem, line)
         stats.slow_pipe(fetch, prevInst, prevPrevInst)
-        #stats.fast_pipe(fetch, prevInst, prevPrevInst)
+        stats.fast_pipe(fetch, prevInst, prevPrevInst)
         if(fetch[0:6] == "001000"):             #addi
             reg[t] = reg[s] + twoComplement(str(fetch[16:33]))  # Rt = Rs + imm
             stats.log(fetch, "addi", 4, 1, 1, line)
@@ -338,8 +353,9 @@ def disassemble(instructions, debugMode):
 
         elif(fetch[0:6] == "000100"):               #BEQ
             if(fetch[6:32] =="00000000001111111111111111" ): # Check if beq is at the end of the program
-                stats.log(fetch, "beq", 0, 4, 4, line) # Infinite loop beq for program end
-            stats.log(fetch, "beq", 3, 1, 1, line) # Regular beq instruction
+                stats.log(fetch, "beq", 3, 4, 4, line) # Infinite loop beq for program end
+            else:
+                stats.log(fetch, "beq", 3, 1, 1, line) # Regular beq instruction
             prevPrevInst = prevInst
             prevInst = fetch
             if(reg[s] == reg[t]):
