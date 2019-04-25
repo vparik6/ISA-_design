@@ -250,19 +250,22 @@ def disassemble(instructions, debugMode):
         stats.slow_pipe(fetch, prevInst, prevPrevInst)
         stats.fast_pipe(fetch, prevInst, prevPrevInst)
         if(fetch[0:6] == "001000"):             #addi
-            reg[t] = reg[s] + twoComplement(str(fetch[16:33]))  # Rt = Rs + imm
+            if(t != 0):
+                reg[t] = reg[s] + twoComplement(str(fetch[16:33]))  # Rt = Rs + imm
             stats.log(fetch, "addi", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line += 1
-        elif(fetch[0:6] == "001111"):           #LUI    
-            reg[t] = reg[int(fetch[16:332],2)] << 16    #Rt = imm <<16
+        elif(fetch[0:6] == "001111"):           #LUI
+            if(t != 0):    
+                reg[t] = reg[int(fetch[16:332],2)] << 16    #Rt = imm <<16
             stats.log(fetch, "lui", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line+=1
         elif (fetch[0:6] == "001101"):           #ori
-            reg[t] = reg[s] | int(fetch[16:32],2)       #Rt = Rs | imm
+            if(t != 0):
+                reg[t] = reg[s] | int(fetch[16:32],2)       #Rt = Rs | imm
             stats.log(fetch, "ori", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
@@ -293,7 +296,12 @@ def disassemble(instructions, debugMode):
                 prevInst = fetch
                 line +=1
             elif (fetch[26:32] == "100001"):      #addu
-                reg[d] = reg[s] + reg[t]          #Rd = Rs + Rt
+                reg[d] = twoComplement(format(reg[s],"32b")) + twoComplement(format(reg[t], "32b"))          #Rd = Rs + Rt
+                temp = 0xffffffff
+                reg[d] = reg[d] & temp
+                temp = format(reg[d], "32b")
+                if(temp[0] == '1'):
+                    reg[d] = -(2**32)+reg[d]
                 stats.log(fetch, "addu", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
@@ -311,10 +319,10 @@ def disassemble(instructions, debugMode):
                 prevInst = fetch
                 line +=1
             elif(fetch[26:32] == "100110"):        #XOR
-                if(reg[t] <0):
-                    reg[d] = reg[t]
-                else:
-                    reg[d] = reg[s]^reg[t]            #Rd = Rs ^ Rt
+                reg[d] = reg[s] ^ reg[t]           #Rd = Rs ^ Rt
+                tmp = format(reg[d], "32b")
+                if(tmp[0] == 1):
+                    reg[d] = reg[d] + (2**32)
                 stats.log(fetch, "xor", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
@@ -328,11 +336,11 @@ def disassemble(instructions, debugMode):
             elif(fetch[26:32] == "000000"):
                 imm = int(fetch[21:26], 2)         #SLL
                 reg[d]  = reg[t] << imm            #Rd = Rt <<imm
-                i = 0
-                if(reg[d] > (2**31)-1):
-                   while(reg[d] > 0 ):
-                        reg[d] -= (2**(32+i))
-                        i = i +1
+                temp = 0xffffffff
+                reg[d] = reg[d] & temp
+                temp = format(reg[d], "32b")
+                if(temp[0] == '1'):
+                    reg[d] = -(2**32)+reg[d]
                 stats.log(fetch, "sll", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
