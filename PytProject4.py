@@ -173,12 +173,12 @@ class cache:
     def LRU(self, tag, setIndex):
         for i in range(self.nWays-1):
             self.lruArr[setIndex][i] = self.lruArr[setIndex][i+1]
-            self.lruArr[setIndex][nWays-1]= tag
+            self.lruArr[setIndex][self.nWays-1]= tag
 
-    def printB(self, setIndex, inBlkOffset):
+    def printB(self, setIndex, blockNum):
         print("Block = [", end=" ")
         for j in range(self.wordsPerBlock):
-           print(str(self.cache[setIndex][inBlkOffset].data[j])+ ", ", end="")
+           print(str(self.cache[setIndex][blockNum].data[j])+ ", ", end="")
         print("]", end="")
         print("")
 
@@ -187,10 +187,12 @@ class cache:
     def getMiss(self):
         return self.miss
 
-
     def accessCache(self, addr, mem, val):
         inBlkOffset =int(addr[-self.wordOffset:],2)
-        setIndex = int(addr[-(int(ceil(log(self.numberOfSets,2))) + self.wordOffset):-self.wordOffset],2)
+        if(self.numberOfSets == 1):
+            setIndex = 0
+        else:
+            setIndex = int(addr[-(int(ceil(log(self.numberOfSets,2))) + self.wordOffset):-self.wordOffset],2)
         tag = int(addr[:-(self.wordOffset +ceil(log(self.numberOfSets,2)))],2)
         memIndex = int(addr,2)
         found = False
@@ -202,18 +204,15 @@ class cache:
                         print("Cache HIT!! Reading a block...")
                     self.hit+=1
                     found = True
-                    data = self.cache[setIndex][i].readBlock(inBlkOffset)
-                    self.printB(setIndex, int(inBlkOffset,2))
+                    data = self.cache[setIndex][i].readBlock(inBlkOffset, tag)
+                    self.printB(setIndex, i)
                     return
             for i in range(self.nWays):
                 if((self.cache[setIndex][i].tag == "undefined")):     #looks for empty block
                     if(self.debugMode == 1):
                         print("Cache MISS!! Loading a block...")
                     self.miss +=1
-                    if(self.nWays != 1):
-                        self.lruArr[setIndex][self.currentIndex[setIndex]] = tag
-                    else:
-                        self.lruArr[current] = tag
+                    self.lruArr[setIndex][self.currentIndex[setIndex]] = tag
                     self.currentIndex[setIndex] += 1
                     self.cache[setIndex][i].loadBlock(memIndex, tag, mem)
                     self.printB(setIndex, i)
@@ -222,18 +221,12 @@ class cache:
                 if(self.debugMode == 1):
                     print("Cache MISS!! Loading a block...")
                 self.miss +=1
-                if(self.nWays == 1):
-                    self.cache[setIndex][0].loadBlock(memIndex, tag, mem)
-                    if(self.nWays != 1):
-                        tmpTag = self.grab_LRU(setIndex)
-                    self.printB(setIndex, i)
-                else:
-                    for i in range(self.nWays):
-                        if(tmpTag==self.cache[setIndex][i].tag):
-                            self.cache[setIndex][i].loadBlock(memIndex, tag, mem)
-                            self.LRU(tag, setIndex)
-                            self.printB(setIndex, i)
-                            return
+                for i in range(self.nWays):
+                    if(self.lruArr[setIndex][0] == self.cache[setIndex][i].tag):
+                        self.cache[setIndex][i].loadBlock(memIndex, tag, mem)
+                        self.LRU(tag, setIndex)
+                        self.printB(setIndex, i)
+                        return
         else:
             if(self.cache[setIndex][0].tag == tag):
                 if(self.debugMode == 1):
@@ -417,7 +410,7 @@ def disassemble(instructions, debugMode):
 
 def main():
    # openFile = str(input("Enter the name of the file with the extention .txt : "))
-    inFile = open("testCase1Hex.txt", "r")       #opens the file
+    inFile = open("testCase2XHex.txt", "r")       #opens the file
     instructions = []                       #declares an array
     
     for line in inFile:
