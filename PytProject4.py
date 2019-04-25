@@ -1,5 +1,4 @@
-import math
-from math import log, ceil, floor
+from math import log, ceil
 import random
 
 def twoComplement(string):
@@ -16,23 +15,40 @@ class Statistics:
          self.I= ""               #current instruction being executed
          self.name = ""           # name of the instruction
          self.cycle = 0           # Total cycles in simulation
+         self.slowCycle = 0       # Total cycles in slow pipeline 
+         self.fastCycle = 0       # Total cycles in fast pipeline
+         #self.isSlow = False      # Boolean to check if slow pipeline is currently being run
+         #self.isFast = False      # Boolean to check if fast pipeline is currently being run
          self.DIC = 0             # Total Dynamic Instr Count
          self.threeCycles= 0      # How many instr that took 3 cycles to execute
          self.fourCycles = 0      #                          4 cycles
          self.fiveCycles = 0      #                          5 cycles
-         self.DataHazard = 0      #number of data hazards
-         self.ControlHazard = 0   #number of control hazards
+         self.DataHazardSlow = 0      #number of data hazards in slow pipeline
+         self.ControlHazardSlow = 0   #number of control hazards in slow pipeline
+         self.DataHazardFast = 0    #number of data hazards in fast pipeline
+         self.ControlHazardFast = 0 #number of control hazards in fast pipeline
+         #self.CompBranchHazard = False #Boolean value to check if data hazard is a CompBranch or not
          self.NOPcount = 0        #keeps track of NOP
          self.flushCount = 0      #keeps track of flush
          self.stallCount = 0      #keeps track of stall count
          self.debugMode = debugMode
-
-
-    def log(self,I,name,cycle,pc):
+         self.multiS = []
+         self.slowS = []
+         self.fastS = []
+         for i in range(4):
+             self.multiS.append(" ")
+             self.slowS.append(" ")
+             self.fastS.append(" ")
+             
+            
+    def log(self,I,name,cycle,slowCycle,fastCycle,pc):
         self.I = I
         self.name = name
         self.pc = pc
         self.cycle +=  cycle
+        self.slowCycle += slowCycle
+        self.fastCycle += fastCycle
+        # Instead of having 1 cycle variable, we might need 3. One each for multi-cycle, slow pipeline, and fast pipeline
         self.DIC += 1
         self.threeCycles += 1 if (cycle == 3) else 0
         self.fourCycles += 1 if (cycle == 4) else 0
@@ -47,49 +63,101 @@ class Statistics:
             t = str(int(self.I[11:16],2))        #read in ther other register - Rt
             d = str(int(self.I[16:21] ,2))       #reads in the register RD
             PcCount = "{:<4}".format(self.pc*4)         #This line is to help with the printout below - PC counts will always be 4 digits
-
+            
+            self.multiS.append(self.name)
+            self.slowS.append(self.name)
+            self.fastS.append(self.name)
+            print("\n===DEBUG MODE: INSTRUCTIONS CYCLE BY CYCLE===")
             if((self.name  == "addi") | (self.name == "ori")):
-                print("Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles")
+                print("Multi-Cycle: " +"{:<3}".format(self.cycle-4)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " + self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "slt") | (self.name == "sltu")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + self.name +" $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles")
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC: "+" " +PcCount + self.name+" $" + d + ", $" + s + ", $" + t + "   Taking 4 cycles "+ self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "add") | (self.name == "or") | (self.name == "sub") | (self.name == "and") | (self.name == "xor") | (self.name == "addu") ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles")
-            elif(self.name == "sll"):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles")
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+" |PC: "+" "+PcCount + self.name+" $" + d + ", $" + s + " , $" + t + "   Taking 4 cycles "+ self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+            elif((self.name == "sll") | (self.name == "slr")):
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4) +" |PC: "+" "+ PcCount+ self.name+ " $" + d + ", $" + t + ", $" + imm + "   Taking 4 cycles "  + self.print_multiState())
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState() )
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif((self.name == "beq") | (self.name == "bne")):
-                print("Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles")
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-3)+ " |PC: " +" "+PcCount + self.name+ " $" + s + ", $" + t + "," + imm + "   Taking 3 cycles " + self.print_multiState())
+                if((s == "0") and (t == "0")): # Check if beq is at the end of the program
+                    print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +self.print_slowState())
+                    print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycle " +self.print_fastState())
+                else:
+                    print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                    print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif(self.name == "sw" ):
-                print("Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles" )
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-4)+ " |PC :" +" "+PcCount +"sw  $" + t  + ", {:<4}".format(hex(int(imm)))+ "($" + s + ")" + "   Taking 4 cycles " + self.print_multiState() )
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             elif(self.name == "lw"):
-                print("Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles" )
+                print("Multi-Cycle: " +  "{:<3}".format(self.cycle-5)+ " |PC :" +" "+PcCount + "lw $" + t + ", {:<4}".format(hex(int(imm))) + "($" + s + ")" + "   Taking 5 cycles "+ self.print_multiState() )
+                print("Slow-Pipeline: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +self.print_slowState())
+                print("Fast-Pipeline: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
             else:
                 print("")
-              
+            print("\n")
+
+	# Functions to print the pipeline stages each instruction is in
+    def print_multiState(self):
+        return "F : " + self.multiS[len(self.multiS)-1] + " D : " + self.multiS[len(self.multiS)-2] + " E : " + self.multiS[len(self.multiS)-3] + " M : " + self.multiS[len(self.multiS)-4] + " W : " + self.multiS[len(self.multiS)-5]
+    def print_slowState(self):
+        return "F : " + self.slowS[len(self.slowS)-1] + " D : " + self.slowS[len(self.slowS)-2] + " E : " + self.slowS[len(self.slowS)-3] + " M : " + self.slowS[len(self.slowS)-4] + " W : " + self.slowS[len(self.slowS)-5]
+    def print_fastState(self):
+        return "F : " + self.fastS[len(self.fastS)-1] + " D : " + self.fastS[len(self.fastS)-2] + " E : " + self.fastS[len(self.fastS)-3] + " M : " + self.fastS[len(self.fastS)-4] + " W : " + self.fastS[len(self.fastS)-5]
+          
 #The function below will print out the values stored into the registers and memory locations at the end of the the program
     def finalOutput(self, reg, mem, PC, hit, miss):
-        print("\n===============STATISTICS===============")
-        print("Multi-cycle CPU : #cycle = "+ str(self.threeCycles) +"x3"+" + "+ str(self.fourCycles) +"x4"+ " + "+ str(self.fiveCycles)+"x5 = "+ str(self.threeCycles*3+self.fourCycles*4+self.fiveCycles*5))
+        print("\n===================STATISTICS=====================\n")
+        print("====================MULTI-CYCLE=======================")
+        print("Total # of cycles: " + str(self.cycle))
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC)+ "Dynamic Instruction Breakdown: ")
+        print("         " + str(self.threeCycles) + " instructions take 3 cycles" )  
+        print("         " + str(self.fourCycles) + " instructions take 4 cycles" )
+        print("         " + str(self.fiveCycles) + " instructions take 5 cycles\n" )
+        
+        print("==================SLOW PIPELINE=======================")
         print("Total # of cycles: " + str(4) + " + " + str(self.DIC) + " + " + str(self.NOPcount) + " = " + str(self.DIC+4+self.NOPcount))
         print("Total Instruction entering pipeline = {0:<4}".format(self.DIC))
         print("Finishing up the last instruction: 4")
         print("Total NOPs = {:<3}".format(self.NOPcount))
-        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC)+ "Dynamic Instruction Breakdown: ")
-        print("         " + str(self.threeCycles) + " instructions take 3 cycles" )  
-        print("         " + str(self.fourCycles) + " instructions take 4 cycles" )
-        print("         " + str(self.fiveCycles) + " instructions take 5 cycles" )
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC))
         print("NOP Breakdown: ")
-        print("         " + str(self.DataHazard) + " Data Hazards")
-        print("         " + str(self.ControlHazard) + " Control Hazards")
-        print("\n===============Cache===============")
+        print("         " + str(self.DataHazardSlow) + " Data Hazards")
+        print("         " + str(self.ControlHazardSlow) + " Control Hazards")
+
+        if(self.ControlHazardFast != 0): #To account for the extra looping in the fast_pipe function
+            self.ControlHazardFast -= 2
+        #if(self.CompBranchHazard == True): #To account for the extra loop when the instruction is run when the branch will not be taken
+        #    self.DataHazardFast -= 1
+        print("\n===FAST PIPELINE===")
+        print("Total # of cycles: " + str(4) + " + " + str(self.DIC) + " + " + str(self.ControlHazardFast) + " + " + str(self.DataHazardFast) +" = " + str(self.DIC+4+self.ControlHazardFast+self.DataHazardFast))
+        print("Total Instruction entering pipeline = {0:<4}".format(self.DIC))
+        print("Finishing up the last instruction: 4")
+        #print("Total NOPs = {:<3}".format(self.NOPcount))
+        print("Dynamic Instruction count = {0:<4}\n".format(self.DIC))
+        print("Delay Breakdown: ")
+        print("         " + str(self.DataHazardFast) + " Data Hazards")
+        print("         " + str(self.ControlHazardFast) + " Control Hazards")
+        print("Multi-Cycle Comparison: Fast Pipeline is " + str((self.cycle) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
+        print("Slow Pipeline Comparison: Fast Pipeline is " + str((self.DIC+4+self.NOPcount) - (self.DIC+4+self.ControlHazardFast+self.DataHazardFast)) + " cycles faster")
+
+        #cache outputs                
+        print("\n=======================Cache=========================")
         print("Cache Hit  = " + str(hit))
         print("Cache Miss  = " + str(miss))
         print(" % Hit rate  = " + str(hit/(hit+miss)* 100) + "% ")
 
-
     #check for hazards and update NOPcount, stallCount, flushCount and other statistics
     def slow_pipe(self, currentInst, prevInst, prevPrevInst):
         cRs = currentInst[6:11]     #current instruction register Rs
-        cRt = currentInst[11:16]    #currentcurreint register Rt
+        cRt = currentInst[11:16]    #currentcurreint register Rt 
         if ((prevInst != "")  & (prevInst[0:6] != "000000")):        #if the previous instruction is R-type or I-type choose pRd appropriately
             pRd=prevInst[11:16]      
         else :
@@ -102,20 +170,72 @@ class Statistics:
             if((prevInst[0:6] != "000100") & (prevInst[0:6] != "000101")):
                 if((pRd == cRs) | (pRd == cRt)): 
                    self.NOPcount += 2
-                   self.DataHazard +=2
+                   self.DataHazardSlow +=2
+                   self.slowS.append("NOP")
+                   self.slowS.append("NOP")                    
                    if(self.debugMode == 1):
-                      print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 2 cycle")
-                elif((ppRd == cRs) | (ppRd == cRt)):
-                    self.NOPcount +=1
-                    self.DataHazard +=1
-                    if(self.debugMode == 1):
-                        print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Takes 1 cycle")   
+                      print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 2 cycles")
+                   self.slowCycle +=2
+                elif((ppRd != prevInst[6:11])|(ppRd != prevInst[11:16])):
+                    if((ppRd == cRs) | (ppRd == cRt)):
+                        self.NOPcount +=1
+                        self.DataHazardSlow +=1
+                        self.slowS.append("NOP")
+                        if(self.debugMode == 1):
+                            print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 1 cycle") 
+                        self.slowCycle +=1
             else:  #if the curent instruction is beq or bne add 3 NOPs
                 self.NOPcount += 3
-                self.ControlHazard += 3
+                self.ControlHazardSlow += 3
+                self.slowS.append("NOP")
+                self.slowS.append("NOP")
+                self.slowS.append("NOP")
                 if(self.debugMode == 1):
-                    print("Cycle: " +  "{:<3}".format(self.cycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP  Taking 3 cycle")
+                    print("Slow Cycle: " +  "{:<3}".format(self.slowCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "NOP taking 3 cycles")
+                self.slowCycle += 3
+        
+    def fast_pipe(self, currentInst, prevInst, prevPrevInst):
+        cRs = currentInst[6:11]     #current instruction register Rs
+        cRt = currentInst[11:16]    #currentcurreint register Rt
+        #self.DataHazard = 0
+        #self.ControlHazard = 0
+        #self.NOPcount = 0
+        if ((prevInst != "")  & (prevInst[0:6] != "000000")):        #if the previous instruction is R-type or I-type choose pRd appropriately
+            pRd=prevInst[11:16]      
+        else :  
+            pRd = prevInst[16:21]
+        if prevPrevInst[0:6] != "000000":    #if the prevPrevInst  R-type or I-type choose ppRd approproately
+            ppRd = prevPrevInst[11:16] 
+        else : 
+            ppRd=prevPrevInst[16:21]
+        if(prevInst != ""): 
+            if((currentInst[0:6] == "000100") | (currentInst[0:6] == "000101")): # Calculate branch hazard
+                self.ControlHazardFast += 1 #if the curent instruction is beq or bne, there is a delay of 1 cycle
+                self.fastS.append("Delay")
+                if(self.debugMode == 1):
+                    print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Control Hazard: Taken branch delay taking 1 cycle")
+                self.fastCycle += 1
+                if((pRd == cRs) | (pRd == cRt)): # Check if previous instruction uses same registers as the branch instruction
+                    #self.CompBranchHazard = True
+                    self.DataHazardFast +=1
+                    self.fastS.append("Delay")
+                    if(self.debugMode == 1):
+                        print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: Compute-branch delay taking 1 cycle")
+                    self.fastCycle += 1
+            elif(prevInst[0:6] == "100011"): # lw-use hazard
+                if((pRd == cRs) | (pRd == cRt)): # Check if the current instruction uses the same registers as the previous LW instruction
+                    self.DataHazardFast +=1
+                    self.fastS.append("Delay")
+                    if(self.debugMode == 1):
+                        print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Data Hazard: LW-use delay taking 1 cycle")
+                    self.fastCycle += 1
+            # Still need to get output for the fast pipeline implementation
+            #Keep track of which instructions are still in a 5-stage pipeline
+            #Add additional information for what hazards occur and what forward path is used
+            #Include total cycle count as well as how many cycles faster fast pipeline is that multi-cycle
+            #and slow pipeline implementations. Also how many control/data hazards there were 
 
+    #Cache Staring here
 class Block():
     def __init__(self, wordsPerBlock, whichSet, debugMode):
         self.data  = [0]*wordsPerBlock
@@ -139,8 +259,7 @@ class Block():
     def readBlock(self, offset, tag):
         if(self.debugMode == 1):
             print("Tag: " + format(tag, "b"))
-        return self.data[int(offset/4)]        
-
+        return self.data[int(offset/4)]
 
 class cache:
     def __init__(self, b, numberOfSets, nWays, debugMode):
@@ -152,15 +271,15 @@ class cache:
         self.nWays = nWays
         if(nWays != 1):
             self.lruArr= [[0 for x in range(nWays)] for y in range(numberOfSets)] #create a list of numberOfsets each with nWays arr
-        self.currentIndex = [0]*numberOfSets #initialize currentIndex for all of them to 0
+        self.currentIndex = [0]*numberOfSets                                    #initialize currentIndex for all of them to 0
         self.numberOfSets = numberOfSets
         tempBlock = []
         self.hit = 0
         self.miss = 0
-
         self.cache = [[Block(self.wordsPerBlock, i,self.debugMode) for i in range(nWays)]for j in range(numberOfSets)]
         self.blockCount = numberOfSets * nWays
         self.current = 0
+
     def grab_LRU(self, setIndex):             #returns the LRU tag
         return self.lruArr[setIndex][0]
 
@@ -170,6 +289,7 @@ class cache:
                 for i in range(self.nWays-1):
                     self.lruArr[setIndex][i] = self.lruArr[setIndex][i+1]
                 self.lruArr[setIndex][self.nWays-1]= tag
+
     def LRU(self, tag, setIndex):
         for i in range(self.nWays-1):
             self.lruArr[setIndex][i] = self.lruArr[setIndex][i+1]
@@ -243,28 +363,25 @@ class cache:
                 if(self.debugMode == 1):
                     self.printB(setIndex, 0)
 
-def oneComplement(n):
-    number_of_bits = int(floor(log(n)/log(2)))+1
-    return ((1<<number_of_bits)-1)^n
 
 def disassemble(instructions, debugMode): 
     line = 0                          #keeps track of what line of of instrcution form the txt file is being run
     finished = False                        #is the program finished?
-    reg = [0]*24                            #declare register array all initialized to 0
-    mem =  [0]*1000                            #memory from 0x2000 ot 0x2050
+    reg = [0]*32                            #declare register array all initialized to 0
+    mem = [0]*1000                            #memory from 0x2000 ot 0x2050
     fetch = instructions[line]
     stats = Statistics(debugMode)
     #fetch = instructio i or current instruction
     prevInst = ""                   #instruction i-1
     prevPrevInst = ""               #instruction i-2
     instNameArr = []
-    tmpOffset = 0
+    tmpOffset = 0 #this is a dummy vriable
 
     wordsPerBlock = int(input("Enter the block size b(# of bytes): "))
     numberOfSets = int(input("Enter the number of sets S:  "))
-    nWays = int(input("Enter words for ways N: "))
-
+    nWays = int(input("Enter N: "))
     _cache = cache(wordsPerBlock, numberOfSets, nWays, debugMode)
+
 
     while(not finished):
         fetch = instructions[line]
@@ -273,18 +390,16 @@ def disassemble(instructions, debugMode):
         d = int(fetch[16:21], 2)        #reads in the register RD
 
         stats.slow_pipe(fetch, prevInst, prevPrevInst)
+        stats.fast_pipe(fetch, prevInst, prevPrevInst)
         if(fetch[0:6] == "001000"):             #addi
-            if(t != 0):
-                imm = twoComplement(fetch[16:33])
-                reg[t] = reg[s] + imm            # Rt = Rs + imm
-            stats.log(fetch, "addi", 4, line)
+            reg[t] = reg[s] + twoComplement(str(fetch[16:33]))  # Rt = Rs + imm
+            stats.log(fetch, "addi", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line += 1
         elif (fetch[0:6] == "001101"):           #ori
-            if(t != 0):
-                reg[t] = reg[s] | int(fetch[16:32],2)       #Rt = Rs | imm
-            stats.log(fetch, "ori", 4, line)
+            reg[t] = reg[s] | int(fetch[16:32],2)       #Rt = Rs | imm
+            stats.log(fetch, "ori", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line +=1
@@ -294,7 +409,7 @@ def disassemble(instructions, debugMode):
                     reg[d] = 1                  #Rd = 1
                 else:
                     reg[d] = 0                  # Rd = 0
-                stats.log(fetch, "slt", 4, line)
+                stats.log(fetch, "slt", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
@@ -306,10 +421,10 @@ def disassemble(instructions, debugMode):
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
-                stats.log(fetch, "sltu", 4, line)
+                stats.log(fetch, "sltu", 4, 1, 1, line)
             elif (fetch[26:32] == "100000"):     #add
                 reg[d] = reg[s] + reg[t]         #Rd = Rs + Rt
-                stats.log(fetch, "add", 4, line)
+                stats.log(fetch, "add", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
@@ -320,34 +435,34 @@ def disassemble(instructions, debugMode):
                 temp = format(reg[d], "32b")
                 if(temp[0] == '1'):
                     reg[d] = -(2**32)+reg[d]
-                stats.log(fetch, "addu", 4, line)
+                stats.log(fetch, "addu", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
             elif (fetch[26:32] == "100101"):       #or
                 reg[t] = reg[s] | reg[t]           #Rd = Rs | Rt
-                stats.log(fetch, "or", 4, line)
+                stats.log(fetch, "or", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
             elif (fetch[26:32] == "100010"):       #SUB
                 reg[d] = reg[s] - reg[t]           #Rd = Rs - Rt
-                stats.log(fetch, "sub", 4, line)
+                stats.log(fetch, "sub", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
             elif(fetch[26:32] == "100110"):        #XOR
-                reg[d] = reg[s] ^ reg[t]
+                reg[d] = reg[s] ^ reg[t]           #Rd = Rs ^ Rt
                 tmp = format(reg[d], "32b")
                 if(tmp[0] == 1):
                     reg[d] = reg[d] + (2**32)
-                stats.log(fetch, "xor", 4, line)
+                stats.log(fetch, "xor", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line+= 1
             elif(fetch[26:32] == "100100"):        #AND
                 reg[d] = reg[s] & reg[t]           #Rd = RS & Rt
-                stats.log(fetch, "and", 4, line)
+                stats.log(fetch, "and", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
@@ -359,24 +474,27 @@ def disassemble(instructions, debugMode):
                 temp = format(reg[d], "32b")
                 if(temp[0] == '1'):
                     reg[d] = -(2**32)+reg[d]
-                stats.log(fetch, "sll", 4, line)
+                stats.log(fetch, "sll", 4, 1, 1, line)
                 prevPrevInst = prevInst
                 prevInst = fetch
                 line +=1
         elif(fetch[0:6] == "000100"):               #BEQ
-            stats.log(fetch, "beq", 3, line)
+            if(fetch[6:32] =="00000000001111111111111111" ): # Check if beq is at the end of the program
+                stats.log(fetch, "beq", 3, 4, 4, line) # Infinite loop beq for program end
+            else:
+                stats.log(fetch, "beq", 3, 1, 1, line) # Regular beq instruction
             prevPrevInst = prevInst
             prevInst = fetch
-            line += 1
+            line+=1
             if(reg[s] == reg[t]):
-                offset = twoComplement(fetch[16:32]) 
-                line += offset
+                offset = twoComplement(fetch[16:32])
+                line = line + offset
             if(fetch[6:32] =="00000000001111111111111111" ):
                 stats.print()
                 stats.finalOutput(reg, mem, line, _cache.getHit(), _cache.getMiss())
                 finished = True
         elif(fetch[0:6] == "000101"):               #BNE
-            stats.log(fetch, "bne", 3, line)
+            stats.log(fetch, "bne", 3, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line +=1
@@ -384,23 +502,23 @@ def disassemble(instructions, debugMode):
                 tmpOffset = twoComplement(fetch[16:32])
                 line = line + tmpOffset
         elif(fetch[0:6] == "101011"):               #SW
-            stats.log(fetch, "sw", 4, line)
+            stats.log(fetch, "sw", 4, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line +=1
-            offset = twoComplement(str(fetch[16:32]))  
+            offset = twoComplement(str(fetch[16:32]))           
             mem[int(reg[s] + offset) - int(8192)] = reg[t]
             #8192  = 0x2000, it indicates that our mem[0] = mem[0x2000], the fist element in mem array is our memory location [0x2000] ]
             addr = format(reg[s]+offset, "032b")
             _cache.accessCache(addr, mem, 0)
+
         elif(fetch[0:6] == "100011"):               #LW
-            stats.log(fetch, "lw", 5, line)
+            stats.log(fetch, "lw", 5, 1, 1, line)
             prevPrevInst = prevInst
             prevInst = fetch
             line +=1
             offset = twoComplement(str(fetch[16:32]))
-            reg[t] = mem[reg[s] + offset - int(8192)]               #8192  = 0x2000, it indicates that our mem[0] = mem[0x2000]
-                                                                                #the fist element in mem array is our memory location [0x2000]
+            reg[t] = mem[reg[s] + offset - int(8192)]
             addr = format(reg[s]+offset, "032b")
             _cache.accessCache(addr, mem, 1)
         else:
@@ -423,7 +541,6 @@ def main():
 
     debugMode = int(input("1: Debug Mode \n0: Normal Mode : "))
     print("")
-    
-    disassemble(instructions, debugMode)
-
+    disassemble(instructions, debugMode) 
 main()
+
