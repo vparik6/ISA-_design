@@ -24,7 +24,7 @@ class Statistics:
          self.ControlHazardSlow = 0   #number of control hazards in slow pipeline
          self.DataHazardFast = 0    #number of data hazards in fast pipeline
          self.ControlHazardFast = 0 #number of control hazards in fast pipeline
-         self.CompBranchHazard = False #Boolean value to check if data hazard is a CompBranch or not
+         #self.CompBranchHazard = False #Boolean value to check if data hazard is a CompBranch or not
          self.NOPcount = 0        #keeps track of NOP
          self.flushCount = 0      #keeps track of flush
          self.stallCount = 0      #keeps track of stall count
@@ -131,8 +131,8 @@ class Statistics:
         
         if(self.ControlHazardFast != 0): #To account for the extra looping in the fast_pipe function
             self.ControlHazardFast -= 2
-        if(self.CompBranchHazard == True): #To account for the extra loop when the instruction is run when the branch will not be taken
-            self.DataHazardFast -= 1
+        #if(self.CompBranchHazard == True): #To account for the extra loop when the instruction is run when the branch will not be taken
+        #    self.DataHazardFast -= 1
         print("\n===FAST PIPELINE===")
         print("Total # of cycles: " + str(4) + " + " + str(self.DIC) + " + " + str(self.ControlHazardFast) + " + " + str(self.DataHazardFast) +" = " + str(self.DIC+4+self.ControlHazardFast+self.DataHazardFast))
         print("Total Instruction entering pipeline = {0:<4}".format(self.DIC))
@@ -207,7 +207,7 @@ class Statistics:
                     print("Fast Cycle: " +  "{:<3}".format(self.fastCycle)+ " |PC: "+" {:<4}".format(self.pc*4) + "Control Hazard: Taken branch delay taking 1 cycle")
                 self.fastCycle += 1
                 if((pRd == cRs) | (pRd == cRt)): # Check if previous instruction uses same registers as the branch instruction
-                    self.CompBranchHazard = True
+                    #self.CompBranchHazard = True
                     self.DataHazardFast +=1
                     self.fastS.append("Delay")
                     if(self.debugMode == 1):
@@ -410,7 +410,7 @@ def disassemble(instructions, debugMode):
 
 def main():
    # openFile = str(input("Enter the name of the file with the extention .txt : "))
-    inFile = open("case3Hex.txt", "r")       #opens the file
+    inFile = open("case2Hex.txt", "r")       #opens the file
     instructions = []                       #declares an array
     
     for line in inFile:
