@@ -194,6 +194,7 @@ class Statistics:
         while (n < 129):
             print("${:<2} = {:<12}     ${:<2} = {:<12}    ${:<2} = {:<12}     ${:<2} = {:<12}".format(hex(c), mem[n], hex(c+4), mem[n+4], hex(c+8), mem[n+8], hex(c+12), mem[n+12]))
             n = n + 16
+            c = c + 16
 
 
 
@@ -583,7 +584,7 @@ def disassemble(instructions, debugMode):
 
 def main():
    # openFile = str(input("Enter the name of the file with the extention .txt : "))
-    inFile = open("testCase2XHex.txt", "r")       #opens the file
+    inFile = open("testCase1YHex.txt", "r")       #opens the file
     instructions = []                       #declares an array
     
     for line in inFile:
