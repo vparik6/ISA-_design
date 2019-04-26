@@ -11,8 +11,6 @@ xor $8, $10, $8
 beq $0, $0, sw_loop
 sw_done:
 
-# your sorting code below
-# provide two versions:
 # Z1 is one sorting algorithm
 # SelectionSort
 addi $8, $0, 0x40
@@ -33,6 +31,3 @@ lw $10, 0x2000($8)
 	bne $9, $0, loop_1
 addi $8, $8, -4
 bne $8, $0, loop_2
-
-# Z2 is the other one
-#end: beq $0, $0, end
