@@ -1,0 +1,2525 @@
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipelin  : 1
+
+0   |PC:  0   ori $8, $ 0, 24   Taking 4 cycles
+F : ori D :   E :   M :   W :
+
+4   |PC:  4   addi $9, $ 0, 64   Taking 4 cycles
+F : addi D : ori E :   M :   W :
+
+8   |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : addi E : ori M :   W :
+
+12  |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : addi M : ori W :
+
+16  |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : addi W : ori
+
+19  |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : addi
+
+23  |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+27  |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+31  |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+35  |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+38  |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+42  |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+46  |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+49  |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+53  |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+57  |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+61  |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+65  |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+68  |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+72  |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+76  |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+79  |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+83  |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+87  |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+91  |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+95  |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+98  |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+102 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+106 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+109 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+113 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+117 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+121 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+125 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+128 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+132 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+136 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+139 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+143 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+147 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+151 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+155 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+158 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+162 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+166 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+169 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+173 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+177 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+181 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+185 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+188 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+192 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+196 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+199 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+203 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+207 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+211 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+215 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+218 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+222 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+226 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+229 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+233 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+237 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+241 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+245 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+248 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+252 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+256 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+259 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+263 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+267 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+271 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+275 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+278 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+282 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+286 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+289 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+293 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+297 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+301 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+305 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+308 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+312 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+316 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+319 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+323 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+327 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+331 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+335 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+338 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+342 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+346 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+349 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+353 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+357 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+361 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+365 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+368 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+372 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+376 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+379 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+383 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+387 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+391 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+395 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+398 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+402 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+406 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+409 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+413 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+417 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+421 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+425 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+428 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+432 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+436 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+439 |PC:  20  sll $10, $8, $22016   Taking 4 cycles
+F : sll D : beq E : addi M : sw W : beq
+
+443 |PC:  24  addu $10, $10 , $8   Taking 4 cycles
+F : addu D : sll E : beq M : addi W : sw
+
+447 |PC:  28  sub $8, $0 , $8   Taking 4 cycles
+F : sub D : addu E : sll M : beq W : addi
+
+451 |PC:  32  xor $8, $10 , $8   Taking 4 cycles
+F : xor D : sub E : addu M : sll W : beq
+
+455 |PC:  36  beq $0, $0,-8   Taking 3 cycles
+F : beq D : xor E : sub M : addu W : sll
+
+458 |PC : 8   sw  $8, 0x2000($9)   Taking 4 cycles
+F : sw D : beq E : xor M : sub W : addu
+
+462 |PC:  12  addi $9, $ 9, -4   Taking 4 cycles
+F : addi D : sw E : beq M : xor W : sub
+
+466 |PC:  16  beq $9, $0,5   Taking 3 cycles
+F : beq D : addi E : sw M : beq W : xor
+
+469 |PC:  40  addi $10, $ 0, 64   Taking 4 cycles
+F : addi D : beq E : addi M : sw W : beq
+
+473 |PC:  44  addu $12, $0 , $0   Taking 4 cycles
+F : addu D : addi E : beq M : addi W : sw
+
+477 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : addu E : addi M : beq W : addi
+
+482 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : addu M : addi W : beq
+
+486 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : addu W : addi
+
+489 |PC:  60  addi $12, $ 12, 1   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : addu
+
+493 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : addi E : bne M : slt W : lw
+
+497 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : addi M : bne W : slt
+
+500 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : addi W : bne
+
+505 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : addi
+
+509 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+512 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+516 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+519 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+524 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+528 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+531 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+535 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+538 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+543 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+547 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+550 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+554 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+557 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+562 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+566 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+569 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+573 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+576 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+581 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+585 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+588 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+592 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+595 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+600 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+604 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+607 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+611 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+614 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+619 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+623 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+626 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+630 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+633 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+638 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+642 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+645 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+649 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+652 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+657 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+661 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+664 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+668 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+671 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+676 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+680 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+683 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+687 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+690 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+695 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+699 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+702 |PC:  60  addi $12, $ 12, 1   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+706 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : addi E : bne M : slt W : lw
+
+710 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : addi M : bne W : slt
+
+713 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : addi W : bne
+
+718 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : addi
+
+722 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+725 |PC:  60  addi $12, $ 12, 1   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+729 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : addi E : bne M : slt W : lw
+
+733 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : addi M : bne W : slt
+
+736 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : addi W : bne
+
+741 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : addi
+
+745 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+748 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+752 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+755 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+760 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+764 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+767 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+771 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+774 |PC : 48  lw $8, 0x2000($9)   Taking 5 cycles
+F : lw D : bne E : addi M : bne W : slt
+
+779 |PC:  52  slt $11, $8, $0   Taking 4 cycles
+F : slt D : lw E : bne M : addi W : bne
+
+783 |PC:  56  bne $11, $0,1   Taking 3 cycles
+F : bne D : slt E : lw M : bne W : addi
+
+786 |PC:  64  addi $9, $ 9, 4   Taking 4 cycles
+F : addi D : bne E : slt M : lw W : bne
+
+790 |PC:  68  bne $9, $10,-6   Taking 3 cycles
+F : bne D : addi E : bne M : slt W : lw
+
+793 |PC : 72  sw  $12, 0x2000($0)   Taking 4 cycles
+F : sw D : bne E : addi M : bne W : slt
+
+797 |PC:  76  beq $0, $0,-1   Taking 3 cycles
+F : beq D : sw E : bne M : addi W : bne
+
+
+======================STATISTICS=========================
+====================MULTI-CYCLE=======================
+Total # of cycles: 800
+Dynamic Instruction count = 212
+Dynamic Instruction Breakdown:
+         64 instructions take 3 cycles
+         132 instructions take 4 cycles
+         16 instructions take 5 cycles
+
+========================REGISTER VALUE=========================
+$0  = 0            $1  = 0           $2  = 0            $3  = 0
+$4  = 0            $5  = 0           $6  = 0            $7  = 0
+$8  = -402653200     $9  = 64          $10 = 64           $11 = 1
+$12 = 3            $13 = 0           $14 = 0            $15 = 0
+$16 = 0            $17 = 0           $18 = 0            $19 = 0
+$20 = 0            $21 = 0           $22 = 0            $23 = 0
+$24 = 0            $25 = 0           $26 = 0            $27 = 0
+$28 = 0            $29 = 0           $30 = 0            $31 = 0
+========================Memory VALUE===========================
+$0x2000 = 3                $0x2004 = -262144         $0x2008 = -131072          $0x200c = -65536
+$0x2010 = -32768           $0x2014 = -16384          $0x2018 = -8192            $0x201c = -4096
+$0x2020 = -2048            $0x2024 = -1024           $0x2028 = -512             $0x202c = 2147483392
+$0x2030 = 1073741696       $0x2034 = -1610612800     $0x2038 = -805306400       $0x203c = -402653200
+$0x2040 = 24               $0x2044 = 0               $0x2048 = 0                $0x204c = 0
+$0x2050 = 0                $0x2054 = 0               $0x2058 = 0                $0x205c = 0
+$0x2060 = 0                $0x2064 = 0               $0x2068 = 0                $0x206c = 0
+$0x2070 = 0                $0x2074 = 0               $0x2078 = 0                $0x207c = 0
+$0x2080 = 0                $0x2084 = 0               $0x2088 = 0                $0x208c = 0
+Press any key to continue . . .
+
+
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipelin  : 2
+
+Enter the block size b(# of bytes): 8
+Enter the number of sets S:  8
+Enter N: 1
+Slow Cycle: 0   |PC:  0   ori $8, $ 0, 24   Taking 1 cycle
+F : ori D :   E :   M :   W :
+
+Slow Cycle: 1   |PC:  4   addi $9, $ 0, 64   Taking 1 cycle
+F : addi D : ori E :   M :   W :
+
+Slow Cycle: 2   |PC:  4   NOP taking 2 cycles
+Cache MISS Loading Block...
+memIndex: 0x2040 Tag: 10000001
+Block = [ 24, 0, ]
+4   |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : addi W : ori
+
+Slow Cycle: 5   |PC:  8   NOP taking 1 cycle
+Slow Cycle: 6   |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : NOP E : sw M : NOP W : NOP
+
+Slow Cycle: 7   |PC:  12  NOP taking 2 cycles
+Slow Cycle: 9   |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 10  |PC:  16  NOP taking 3 cycles
+Slow Cycle: 13  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 14  |PC:  20  NOP taking 2 cycles
+Slow Cycle: 16  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 17  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 18  |PC:  28  NOP taking 2 cycles
+Slow Cycle: 20  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 17  |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 22  |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x203c Tag: 10000000
+Block = [ -402653200, 24, ]
+25  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 26  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 27  |PC:  12  NOP taking 2 cycles
+Slow Cycle: 29  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 30  |PC:  16  NOP taking 3 cycles
+Slow Cycle: 33  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 34  |PC:  20  NOP taking 2 cycles
+Slow Cycle: 36  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 37  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 38  |PC:  28  NOP taking 2 cycles
+Slow Cycle: 40  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 37  |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 42  |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+45  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 46  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 47  |PC:  12  NOP taking 2 cycles
+Slow Cycle: 49  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 50  |PC:  16  NOP taking 3 cycles
+Slow Cycle: 53  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 54  |PC:  20  NOP taking 2 cycles
+Slow Cycle: 56  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 57  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 58  |PC:  28  NOP taking 2 cycles
+Slow Cycle: 60  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 57  |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 62  |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x2034 Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+65  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 66  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 67  |PC:  12  NOP taking 2 cycles
+Slow Cycle: 69  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 70  |PC:  16  NOP taking 3 cycles
+Slow Cycle: 73  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 74  |PC:  20  NOP taking 2 cycles
+Slow Cycle: 76  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 77  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 78  |PC:  28  NOP taking 2 cycles
+Slow Cycle: 80  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 77  |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 82  |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+85  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 86  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 87  |PC:  12  NOP taking 2 cycles
+Slow Cycle: 89  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 90  |PC:  16  NOP taking 3 cycles
+Slow Cycle: 93  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 94  |PC:  20  NOP taking 2 cycles
+Slow Cycle: 96  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 97  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 98  |PC:  28  NOP taking 2 cycles
+Slow Cycle: 100 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 97  |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 102 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x202c Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+105 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 106 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 107 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 109 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 110 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 113 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 114 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 116 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 117 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 118 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 120 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 117 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 122 |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+125 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 126 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 127 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 129 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 130 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 133 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 134 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 136 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 137 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 138 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 140 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 137 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 142 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x2024 Tag: 10000000
+Block = [ -1024, -512, ]
+145 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 146 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 147 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 149 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 150 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 153 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 154 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 156 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 157 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 158 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 160 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 157 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 162 |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+165 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 166 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 167 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 169 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 170 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 173 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 174 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 176 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 177 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 178 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 180 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 177 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 182 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x201c Tag: 10000000
+Block = [ -4096, -2048, ]
+185 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 186 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 187 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 189 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 190 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 193 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 194 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 196 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 197 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 198 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 200 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 197 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 202 |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+205 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 206 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 207 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 209 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 210 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 213 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 214 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 216 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 217 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 218 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 220 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 217 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 222 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x2014 Tag: 10000000
+Block = [ -16384, -8192, ]
+225 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 226 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 227 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 229 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 230 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 233 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 234 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 236 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 237 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 238 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 240 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 237 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 242 |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+245 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 246 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 247 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 249 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 250 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 253 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 254 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 256 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 257 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 258 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 260 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 257 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 262 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x200c Tag: 10000000
+Block = [ -65536, -32768, ]
+265 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 266 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 267 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 269 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 270 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 273 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 274 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 276 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 277 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 278 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 280 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 277 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 282 |PC:  36  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+285 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 286 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 287 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 289 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 290 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 293 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 294 |PC:  20  NOP taking 2 cycles
+Slow Cycle: 296 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : NOP E : NOP M : sll W : NOP
+
+Slow Cycle: 297 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : NOP M : NOP W : sll
+
+Slow Cycle: 298 |PC:  28  NOP taking 2 cycles
+Slow Cycle: 300 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : NOP E : NOP M : sub W : addu
+
+Slow Cycle: 297 |PC:  36  beq $0, $ 0, -8   Taking 4 cycles
+F : beq D : xor E : NOP M : NOP W : sub
+
+Slow Cycle: 302 |PC:  36  NOP taking 3 cycles
+Cache MISS Loading Block...
+memIndex: 0x2004 Tag: 10000000
+Block = [ -262144, -131072, ]
+305 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 306 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : NOP M : NOP W : NOP
+
+Slow Cycle: 307 |PC:  12  NOP taking 2 cycles
+Slow Cycle: 309 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : NOP E : NOP M : addi W : sw
+
+Slow Cycle: 310 |PC:  16  NOP taking 3 cycles
+Slow Cycle: 313 |PC:  40  addi $10, $ 0, 64   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : beq
+
+Slow Cycle: 314 |PC:  40  NOP taking 1 cycle
+Slow Cycle: 315 |PC:  44  addu $0, $ 0, 24609   Taking 1 cycle
+F : addu D : NOP E : addi M : NOP W : NOP
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+Slow Cycle: 316 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : addu E : NOP M : addi W : NOP
+
+Slow Cycle: 317 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 319 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : addu
+
+Slow Cycle: 320 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 322 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 323 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 326 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 327 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : NOP M : NOP W : NOP
+
+Slow Cycle: 328 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 330 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : addi
+
+Slow Cycle: 331 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+Slow Cycle: 334 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 335 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 337 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 338 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 340 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 341 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 344 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 345 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 347 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 348 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+Slow Cycle: 351 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 352 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 354 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 355 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 357 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 358 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 361 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 362 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 364 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 365 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+Slow Cycle: 368 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 369 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 371 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 372 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 374 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 375 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 378 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 379 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 381 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 382 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+Slow Cycle: 385 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 386 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 388 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 389 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 391 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 392 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 395 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 396 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 398 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 399 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+Slow Cycle: 402 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 403 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 405 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 406 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 408 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 409 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 412 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 413 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 415 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 416 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+Slow Cycle: 419 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 420 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 422 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 423 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 425 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 426 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 429 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 430 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 432 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 433 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+Slow Cycle: 436 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 437 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 439 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 440 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 442 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 443 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 446 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 447 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 449 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 450 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+Slow Cycle: 453 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 454 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 456 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 457 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 459 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 460 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 463 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 464 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 466 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 467 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+Slow Cycle: 470 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 471 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 473 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 474 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 476 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 477 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 480 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 481 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 483 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 484 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Slow Cycle: 487 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 488 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 490 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 491 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 493 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 494 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 497 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 498 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 500 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 501 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Slow Cycle: 504 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 505 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 507 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 508 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 510 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 511 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 514 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 515 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : NOP M : NOP W : NOP
+
+Slow Cycle: 516 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 518 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : addi
+
+Slow Cycle: 519 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Slow Cycle: 522 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 523 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 525 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 526 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 528 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 529 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 532 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 533 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : NOP M : NOP W : NOP
+
+Slow Cycle: 534 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 536 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : addi
+
+Slow Cycle: 537 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Slow Cycle: 540 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 541 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 543 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 544 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 546 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 547 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 550 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 551 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 553 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 554 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+Slow Cycle: 557 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 558 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 560 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 561 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 563 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 564 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 567 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 568 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 570 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 571 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+Slow Cycle: 574 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 575 |PC:  48  NOP taking 2 cycles
+Slow Cycle: 577 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : NOP E : NOP M : lw W : NOP
+
+Slow Cycle: 578 |PC:  52  NOP taking 2 cycles
+Slow Cycle: 580 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : NOP E : NOP M : slt W : NOP
+
+Slow Cycle: 581 |PC:  56  NOP taking 3 cycles
+Slow Cycle: 584 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 585 |PC:  64  NOP taking 2 cycles
+Slow Cycle: 587 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : NOP E : NOP M : addi W : NOP
+
+Slow Cycle: 588 |PC:  68  NOP taking 3 cycles
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+591 |PC:  72  sw $12, $ 0, 8192   Taking 1 cycle
+F : sw D : NOP E : NOP M : NOP W : bne
+
+Slow Cycle: 591 |PC:  76  beq $0, $ 0, -1   Taking 4 cycles
+F : beq D : sw E : NOP M : NOP W : NOP
+
+
+======================STATISTICS=========================
+=====================SLOW PIPELINE========================
+Total # of cycles: 4 + 212 + 381 = 597
+Total Instruction entering pipeline = 212
+Finishing up the last instruction: 4
+Total NOPs = 381
+Dynamic Instruction count = 212
+
+NOP Breakdown:
+         192 Data Hazards
+         189 Control Hazards
+
+=======================Cache=========================
+Cache Hit  = 24
+Cache Miss  = 9
+ % Hit rate  = 72.72727272727273%
+========================REGISTER VALUE=========================
+$0  = 0            $1  = 0           $2  = 0            $3  = 0
+$4  = 0            $5  = 0           $6  = 0            $7  = 0
+$8  = -402653200     $9  = 64          $10 = 64           $11 = 1
+$12 = 3            $13 = 0           $14 = 0            $15 = 0
+$16 = 0            $17 = 0           $18 = 0            $19 = 0
+$20 = 0            $21 = 0           $22 = 0            $23 = 0
+$24 = 0            $25 = 0           $26 = 0            $27 = 0
+$28 = 0            $29 = 0           $30 = 0            $31 = 0
+========================Memory VALUE===========================
+$0x2000 = 3                $0x2004 = -262144         $0x2008 = -131072          $0x200c = -65536
+$0x2010 = -32768           $0x2014 = -16384          $0x2018 = -8192            $0x201c = -4096
+$0x2020 = -2048            $0x2024 = -1024           $0x2028 = -512             $0x202c = 2147483392
+$0x2030 = 1073741696       $0x2034 = -1610612800     $0x2038 = -805306400       $0x203c = -402653200
+$0x2040 = 24               $0x2044 = 0               $0x2048 = 0                $0x204c = 0
+$0x2050 = 0                $0x2054 = 0               $0x2058 = 0                $0x205c = 0
+$0x2060 = 0                $0x2064 = 0               $0x2068 = 0                $0x206c = 0
+$0x2070 = 0                $0x2074 = 0               $0x2078 = 0                $0x207c = 0
+$0x2080 = 0                $0x2084 = 0               $0x2088 = 0                $0x208c = 0
+Press any key to continue . . .
+
+
+
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipelin  : 3
+
+Enter the block size b(# of bytes): 8
+Enter the number of sets S:  8
+Enter N: 1
+Fast Cycle: 0   |PC:  0   ori $8, $ 0, 24   Taking 1 cycle
+F : ori D :   E :   M :   W :
+
+Fast Cycle: 1   |PC:  4   addi $9, $ 0, 64   Taking 1 cycle
+F : addi D : ori E :   M :   W :
+
+Cache MISS Loading Block...
+memIndex: 0x2040 Tag: 10000001
+Block = [ 24, 0, ]
+Fast Cycle: 2   |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : addi E : ori M :   W :
+
+Fast Cycle: 3   |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : addi M : ori W :
+
+Fast Cycle: 4   |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 5   |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 6   |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 7   |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 8   |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 9   |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 10  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 11  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 8   |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x203c Tag: 10000000
+Block = [ -402653200, 24, ]
+Fast Cycle: 13  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 14  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 15  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 16  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 17  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 18  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 19  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 20  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 21  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 22  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 19  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+Fast Cycle: 24  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 25  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 26  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 27  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 28  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 29  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 30  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 31  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 32  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 33  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 30  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2034 Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Fast Cycle: 35  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 36  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 37  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 38  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 39  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 40  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 41  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 42  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 43  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 44  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 41  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Fast Cycle: 46  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 47  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 48  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 49  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 50  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 51  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 52  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 53  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 54  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 55  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 52  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x202c Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Fast Cycle: 57  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 58  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 59  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 60  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 61  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 62  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 63  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 64  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 65  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 66  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 63  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Fast Cycle: 68  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 69  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 70  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 71  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 72  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 73  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 74  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 75  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 76  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 77  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 74  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2024 Tag: 10000000
+Block = [ -1024, -512, ]
+Fast Cycle: 79  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 80  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 81  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 82  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 83  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 84  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 85  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 86  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 87  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 88  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 85  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+Fast Cycle: 90  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 91  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 92  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 93  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 94  |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 95  |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 96  |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 97  |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 98  |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 99  |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 96  |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x201c Tag: 10000000
+Block = [ -4096, -2048, ]
+Fast Cycle: 101 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 102 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 103 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 104 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 105 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 106 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 107 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 108 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 109 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 110 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 107 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+Fast Cycle: 112 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 113 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 114 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 115 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 116 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 117 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 118 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 119 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 120 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 121 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 118 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2014 Tag: 10000000
+Block = [ -16384, -8192, ]
+Fast Cycle: 123 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 124 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 125 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 126 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 127 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 128 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 129 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 130 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 131 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 132 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 129 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+Fast Cycle: 134 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 135 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 136 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 137 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 138 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 139 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 140 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 141 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 142 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 143 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 140 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x200c Tag: 10000000
+Block = [ -65536, -32768, ]
+Fast Cycle: 145 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 146 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 147 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 148 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 149 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 150 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 151 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 152 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 153 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 154 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 151 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+Fast Cycle: 156 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 157 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 158 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 159 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 160 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 161 |PC:  20  sll $8, $ 0, 22016   Taking 1 cycle
+F : sll D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 162 |PC:  24  addu $8, $ 10, 20513   Taking 1 cycle
+F : addu D : sll E : beq M : Delay W : Delay
+
+Fast Cycle: 163 |PC:  28  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : sll M : beq W : Delay
+
+Fast Cycle: 164 |PC:  32  xor $8, $ 10, 16422   Taking 1 cycle
+F : xor D : sub E : addu M : sll W : beq
+
+Fast Cycle: 165 |PC:  32  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 162 |PC:  36  beq $0, $ 0, -8   Taking 4 cycle
+F : beq D : Delay E : xor M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2004 Tag: 10000000
+Block = [ -262144, -131072, ]
+Fast Cycle: 167 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : xor W : sub
+
+Fast Cycle: 168 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : xor
+
+Fast Cycle: 169 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 170 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 171 |PC:  16  beq $0, $ 9, 5   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 172 |PC:  40  addi $10, $ 0, 64   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 173 |PC:  44  addu $0, $ 0, 24609   Taking 1 cycle
+F : addu D : addi E : beq M : Delay W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+Fast Cycle: 174 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : addu E : addi M : beq W : Delay
+
+Fast Cycle: 175 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 176 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : addu W : addi
+
+Fast Cycle: 177 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 178 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 179 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 180 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 181 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 182 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 183 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 184 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+Fast Cycle: 185 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 186 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 187 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 188 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 189 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 190 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 191 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 192 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 193 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 194 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+Fast Cycle: 195 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 196 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 197 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 198 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 199 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 200 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 201 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 202 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 203 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 204 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -65536, -32768, ]
+Fast Cycle: 205 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 206 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 207 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 208 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 209 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 210 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 211 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 212 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 213 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 214 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+Fast Cycle: 215 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 216 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 217 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 218 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 219 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 220 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 221 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 222 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 223 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 224 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -16384, -8192, ]
+Fast Cycle: 225 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 226 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 227 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 228 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 229 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 230 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 231 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 232 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 233 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 234 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+Fast Cycle: 235 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 236 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 237 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 238 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 239 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 240 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 241 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 242 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 243 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 244 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -4096, -2048, ]
+Fast Cycle: 245 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 246 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 247 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 248 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 249 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 250 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 251 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 252 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 253 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 254 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+Fast Cycle: 255 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 256 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 257 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 258 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 259 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 260 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 261 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 262 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 263 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 264 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1024, -512, ]
+Fast Cycle: 265 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 266 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 267 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 268 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 269 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 270 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 271 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 272 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 273 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 274 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Fast Cycle: 275 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 276 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 277 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 278 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 279 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 280 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 281 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 282 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 283 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 284 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 2147483392, 1073741696, ]
+Fast Cycle: 285 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 286 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 287 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 288 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 289 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 290 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 291 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 292 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 293 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 294 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 295 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Fast Cycle: 296 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 297 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 298 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 299 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 300 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 301 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 302 |PC:  60  addi $12, $ 12, 1   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 303 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 304 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 305 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 306 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1610612800, -805306400, ]
+Fast Cycle: 307 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 308 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 309 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 310 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 311 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 312 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 313 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 314 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 315 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 316 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+Fast Cycle: 317 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 318 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 319 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 320 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 321 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 322 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 323 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 324 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 325 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 326 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -402653200, 24, ]
+Fast Cycle: 327 |PC:  48  lw $8, $ 9, 8192   Taking 1 cycle
+F : lw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 328 |PC:  48  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 329 |PC:  52  slt $0, $ 8, 22570   Taking 1 cycle
+F : slt D : Delay E : lw M : bne W : Delay
+
+Fast Cycle: 330 |PC:  52  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 331 |PC:  52  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 332 |PC:  56  bne $0, $ 11, 1   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 333 |PC:  64  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Fast Cycle: 334 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 335 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 336 |PC:  68  bne $10, $ 9, -6   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : bne
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -262144, -131072, ]
+Fast Cycle: 337 |PC:  72  sw $12, $ 0, 8192   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 338 |PC:  72  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 338 |PC:  76  beq $0, $ 0, -1   Taking 4 cycle
+F : beq D : Delay E : sw M : bne W : Delay
+
+
+======================STATISTICS=========================
+==================FAST PIPELINE===========================
+Total # of cycles: 4 + 212 + 62 + 64 = 342
+Total Instruction entering pipeline = 212
+Finishing up the last instruction: 4
+Dynamic Instruction count = 212
+
+Delay Breakdown:
+         64 Data Hazards
+         62 Control Hazards
+Multi-Cycle Comparison: Fast Pipeline is 458 cycles faster
+Slow Pipeline Comparison: Fast Pipeline is 255 cycles faster
+
+=======================Cache=========================
+Cache Hit  = 24
+Cache Miss  = 9
+ % Hit rate  = 72.72727272727273%
+========================REGISTER VALUE=========================
+$0  = 0            $1  = 0           $2  = 0            $3  = 0
+$4  = 0            $5  = 0           $6  = 0            $7  = 0
+$8  = -402653200     $9  = 64          $10 = 64           $11 = 1
+$12 = 3            $13 = 0           $14 = 0            $15 = 0
+$16 = 0            $17 = 0           $18 = 0            $19 = 0
+$20 = 0            $21 = 0           $22 = 0            $23 = 0
+$24 = 0            $25 = 0           $26 = 0            $27 = 0
+$28 = 0            $29 = 0           $30 = 0            $31 = 0
+========================Memory VALUE===========================
+$0x2000 = 3                $0x2004 = -262144         $0x2008 = -131072          $0x200c = -65536
+$0x2010 = -32768           $0x2014 = -16384          $0x2018 = -8192            $0x201c = -4096
+$0x2020 = -2048            $0x2024 = -1024           $0x2028 = -512             $0x202c = 2147483392
+$0x2030 = 1073741696       $0x2034 = -1610612800     $0x2038 = -805306400       $0x203c = -402653200
+$0x2040 = 24               $0x2044 = 0               $0x2048 = 0                $0x204c = 0
+$0x2050 = 0                $0x2054 = 0               $0x2058 = 0                $0x205c = 0
+$0x2060 = 0                $0x2064 = 0               $0x2068 = 0                $0x206c = 0
+$0x2070 = 0                $0x2074 = 0               $0x2078 = 0                $0x207c = 0
+$0x2080 = 0                $0x2084 = 0               $0x2088 = 0                $0x208c = 0
+Press any key to continue . . .
