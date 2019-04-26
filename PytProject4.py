@@ -87,43 +87,43 @@ class Statistics:
 
             if(userMode == "2"):
                 if((self.name  == "addi") | (self.name == "ori")):
-                    print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
                 elif((self.name == "slt") | (self.name == "sltu")):
-                    print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
                 elif((self.name == "add") | (self.name == "or") | (self.name == "sub") | (self.name == "and") | (self.name == "xor") | (self.name == "addu") ):
-                    print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
                 elif((self.name == "sll") | (self.name == "slr")):
-                    print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState() )
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState() )
                 elif((self.name == "beq") | (self.name == "bne")):
                     if((s == "0") and (t == "0")): # Check if beq is at the end of the program
-                        print("{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +self.print_slowState())
+                        print("Slow Cycle: " +"{:<3}".format(self.slowCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycles " +self.print_slowState())
                     else:
-                        print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
+                        print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle "+self.print_slowState())
                 elif(self.name == "sw" ):
                     print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_slowState())
                 elif(self.name == "lw"):
-                    print("{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +self.print_slowState())
+                    print("Slow Cycle: " +"{:<3}".format(self.slowCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle" +self.print_slowState())
                 else:
                     print("")
 
             if(userMode == "3"):
                 if((self.name  == "addi") | (self.name == "ori")):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif((self.name == "slt") | (self.name == "sltu")):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif((self.name == "add") | (self.name == "or") | (self.name == "sub") | (self.name == "and") | (self.name == "xor") | (self.name == "addu") ):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif((self.name == "sll") | (self.name == "slr")):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif((self.name == "beq") | (self.name == "bne")):
                     if((s == "0") and (t == "0")): # Check if beq is at the end of the program
-                        print("{:<3}".format(self.fastCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycle " +self.print_fastState())
+                        print("Fast Cycle: " +"{:<3}".format(self.fastCycle-5)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 4 cycle " +self.print_fastState())
                     else:
-                        print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                        print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif(self.name == "sw" ):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 elif(self.name == "lw"):
-                    print("{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
+                    print("Fast Cycle: " +"{:<3}".format(self.fastCycle-1)+" |PC: "+" " +PcCount + self.name +" $"+ t + ", $ " + s + ", " + imm + "   Taking 1 cycle " +self.print_fastState())
                 else:
                     print("")
 
@@ -188,7 +188,7 @@ class Statistics:
             print("${:<2} = {:<8}     ${:<2} = {:<8}    ${:<2} = {:<8}     ${:<2} = {:<8}".format(n, reg[n], n+1, reg[n+1], n+2, reg[n+2], n+3, reg[n+3]))
             n = n + 4
 
-        print("========================MEMORY VALUE=========================")
+        print("========================REGISTER VALUE=========================")
         n = 0
         c = 8192
         while (n < 129):
