@@ -1,0 +1,4659 @@
+******PROGRAM Y: (b=8,N=1,S=8)******
+
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipeline  : 3
+
+Enter the block size b(# of bytes): 8
+Enter the number of sets S:  8
+Enter N: 1
+Fast Cycle: 0   |PC:  0   ori $8, $ 0, 2   Taking 1 cycle
+F : ori D :   E :   M :   W :
+
+Fast Cycle: 1   |PC:  4   addi $9, $ 0, 96   Taking 1 cycle
+F : addi D : ori E :   M :   W :
+
+Cache MISS Loading Block...
+memIndex: 0x2060 Tag: 10000001
+Block = [ 2, 0, ]
+Fast Cycle: 2   |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : addi E : ori M :   W :
+
+Fast Cycle: 3   |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : addi M : ori W :
+
+Fast Cycle: 4   |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 5   |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 6   |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 7   |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 8   |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 9   |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 10  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 7   |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x205c Tag: 10000001
+Block = [ -7, 2, ]
+Fast Cycle: 12  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 13  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 14  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 15  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 16  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 17  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 18  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 19  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 20  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 17  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ -7, 2, ]
+Fast Cycle: 22  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 23  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 24  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 25  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 26  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 27  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 28  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 29  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 30  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 27  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2054 Tag: 10000001
+Block = [ -25, 11, ]
+Fast Cycle: 32  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 33  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 34  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 35  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 36  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 37  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 38  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 39  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 40  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 37  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ -25, 11, ]
+Fast Cycle: 42  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 43  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 44  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 45  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 46  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 47  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 48  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 49  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 50  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 47  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x204c Tag: 10000001
+Block = [ -97, 47, ]
+Fast Cycle: 52  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 53  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 54  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 55  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 56  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 57  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 58  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 59  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 60  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 57  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ -97, 47, ]
+Fast Cycle: 62  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 63  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 64  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 65  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 66  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 67  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 68  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 69  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 70  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 67  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2044 Tag: 10000001
+Block = [ -385, 191, ]
+Fast Cycle: 72  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 73  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 74  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 75  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 76  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 77  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 78  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 79  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 80  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 77  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ -385, 191, ]
+Fast Cycle: 82  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 83  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 84  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 85  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 86  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 87  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 88  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 89  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 90  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 87  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x203c Tag: 10000000
+Block = [ -1537, 767, ]
+Fast Cycle: 92  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 93  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 94  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 95  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 96  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 97  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 98  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 99  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 100 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 97  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1537, 767, ]
+Fast Cycle: 102 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 103 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 104 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 105 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 106 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 107 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 108 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 109 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 110 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 107 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2034 Tag: 10000000
+Block = [ -6145, 3071, ]
+Fast Cycle: 112 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 113 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 114 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 115 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 116 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 117 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 118 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 119 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 120 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 117 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6145, 3071, ]
+Fast Cycle: 122 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 123 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 124 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 125 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 126 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 127 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 128 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 129 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 130 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 127 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x202c Tag: 10000000
+Block = [ -24577, 12287, ]
+Fast Cycle: 132 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 133 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 134 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 135 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 136 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 137 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 138 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 139 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 140 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 137 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -24577, 12287, ]
+Fast Cycle: 142 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 143 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 144 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 145 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 146 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 147 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 148 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 149 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 150 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 147 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2024 Tag: 10000000
+Block = [ -98305, 49151, ]
+Fast Cycle: 152 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 153 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 154 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 155 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 156 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 157 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 158 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 159 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 160 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 157 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -98305, 49151, ]
+Fast Cycle: 162 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 163 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 164 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 165 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 166 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 167 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 168 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 169 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 170 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 167 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x201c Tag: 10000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 172 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 173 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 174 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 175 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 176 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 177 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 178 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 179 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 180 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 177 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 182 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 183 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 184 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 185 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 186 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 187 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 188 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 189 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 190 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 187 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2014 Tag: 10000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 192 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 193 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 194 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 195 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 196 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 197 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 198 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 199 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 200 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 197 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 202 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 203 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 204 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 205 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 206 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 207 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 208 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 209 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 210 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 207 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x200c Tag: 10000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 212 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 213 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 214 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 215 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 216 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 217 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 218 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 219 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 220 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 217 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 222 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 223 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 224 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 225 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 226 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 227 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 228 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 229 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 230 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 227 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2004 Tag: 10000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 232 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 233 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 234 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 235 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 236 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 237 |PC:  36  addi $8, $ 0, 8312   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 238 |PC:  40  addi $10, $ 0, 8288   Taking 1 cycle
+F : addi D : addi E : beq M : Delay W : Delay
+
+Fast Cycle: 239 |PC:  44  addi $9, $ 0, 8192   Taking 1 cycle
+F : addi D : addi E : addi M : beq W : Delay
+
+Fast Cycle: 240 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : addi E : addi M : addi W : beq
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 241 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : addi M : addi W : addi
+
+Fast Cycle: 242 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : addi W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 243 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : addi
+
+Fast Cycle: 244 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 245 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 246 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 247 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 248 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 249 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 250 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 251 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 252 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 253 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 254 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 255 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 256 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 257 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 258 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 259 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 260 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 261 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 262 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 263 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 264 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 265 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 266 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 267 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 268 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 269 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 270 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 271 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 272 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 273 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 274 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 275 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2078 Tag: 10000001
+Block = [ -25165825, 0, ]
+Fast Cycle: 276 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 277 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 278 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 279 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 280 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 281 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 282 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 283 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 284 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 285 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 286 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 287 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 288 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 289 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 290 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 291 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 292 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 293 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 294 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 295 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 296 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 297 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 298 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 299 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 300 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 301 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 302 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 303 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 304 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 305 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 306 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 307 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 308 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 309 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 310 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 311 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 312 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 313 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 314 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 315 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 316 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ -25165825, 0, ]
+Fast Cycle: 317 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 318 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 319 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 320 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 321 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 322 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 323 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 324 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 325 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 326 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 327 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 328 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 329 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 330 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 331 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 332 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 333 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 334 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 335 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 336 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 337 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -98305, 49151, ]
+Fast Cycle: 338 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 339 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 340 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 341 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 342 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 343 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 344 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 345 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 346 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 347 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 348 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -98305, 49151, ]
+Fast Cycle: 349 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 350 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 351 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 352 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 353 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 354 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 355 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 356 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 357 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 358 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2080 Tag: 10000010
+Block = [ -393217, 0, ]
+Fast Cycle: 359 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 360 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 361 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 362 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 363 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 364 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 365 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -98305, 49151, ]
+Fast Cycle: 366 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 367 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -24577, 12287, ]
+Fast Cycle: 368 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 369 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 370 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 371 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 372 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 373 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 374 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 375 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 376 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 377 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 378 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -24577, 12287, ]
+Fast Cycle: 379 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 380 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 381 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 382 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 383 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 384 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 385 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 386 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 387 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 388 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 389 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6145, 3071, ]
+Fast Cycle: 390 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 391 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 392 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 393 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 394 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 395 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 396 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 397 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 398 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 399 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT  Reading Block...
+Tag: 10000010
+Block = [ -393217, 0, ]
+Fast Cycle: 400 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 401 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 402 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 403 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 404 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 405 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 406 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6145, 3071, ]
+Fast Cycle: 407 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 408 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ -6145, 3071, ]
+Fast Cycle: 409 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 410 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 411 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 412 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 413 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 414 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 415 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 416 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 417 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 418 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 419 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 420 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2038 Tag: 10000000
+Block = [ 3071, -1537, ]
+Fast Cycle: 421 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 422 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 423 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 424 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 425 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 426 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 427 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 428 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 429 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 430 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 431 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 3071, -1537, ]
+Fast Cycle: 432 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 433 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 434 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 435 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 436 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 437 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 438 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 439 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 440 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 441 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2088 Tag: 10000010
+Block = [ -6145, 0, ]
+Fast Cycle: 442 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 443 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 444 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 445 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 446 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 447 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 448 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000
+Block = [ 3071, -1537, ]
+Fast Cycle: 449 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 450 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2040 Tag: 10000001
+Block = [ 767, -385, ]
+Fast Cycle: 451 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 452 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 453 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 454 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 455 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 456 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 457 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 458 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 459 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 460 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 461 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ 767, -385, ]
+Fast Cycle: 462 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 463 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 464 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 465 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 466 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 467 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 468 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 469 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 470 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 471 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 472 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2048 Tag: 10000001
+Block = [ 191, -97, ]
+Fast Cycle: 473 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 474 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 475 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 476 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 477 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 478 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 479 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 480 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 481 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 482 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x208c Tag: 10000010
+Block = [ -1537, 0, ]
+Fast Cycle: 483 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 484 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 485 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 486 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 487 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 488 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 489 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache MISS Loading Block...
+memIndex: 0x2048 Tag: 10000001
+Block = [ 191, -97, ]
+Fast Cycle: 490 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 491 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ 191, -97, ]
+Fast Cycle: 492 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 493 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 494 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 495 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 496 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 497 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 498 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 499 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 500 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 501 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 502 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 503 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2050 Tag: 10000001
+Block = [ 47, -25, ]
+Fast Cycle: 504 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 505 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 506 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 507 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 508 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 509 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 510 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 511 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 512 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 513 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 514 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ 47, -25, ]
+Fast Cycle: 515 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 516 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 517 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 518 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 519 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 520 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 521 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 522 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 523 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 524 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2090 Tag: 10000010
+Block = [ -97, 0, ]
+Fast Cycle: 525 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 526 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 527 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 528 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 529 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 530 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 531 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache MISS Loading Block...
+memIndex: 0x2054 Tag: 10000001
+Block = [ -25, 11, ]
+Fast Cycle: 532 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 533 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2058 Tag: 10000001
+Block = [ 11, -7, ]
+Fast Cycle: 534 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 535 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 536 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 537 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 538 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 539 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 540 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 541 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 542 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 543 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 544 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000001
+Block = [ 11, -7, ]
+Fast Cycle: 545 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 546 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 547 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 548 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 549 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 550 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 551 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 552 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 553 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 554 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 555 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2060 Tag: 10000001
+Block = [ 2, 0, ]
+Fast Cycle: 556 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 557 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 558 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 559 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 560 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 561 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 562 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 563 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 564 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 565 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2094 Tag: 10000010
+Block = [ -25, 0, ]
+Fast Cycle: 566 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 567 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 568 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 569 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 570 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 571 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 572 |PC:  96  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  96  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  100 beq $0, $ 0, -1   Taking 4 cycle
+F : beq D : Delay E : Delay M : bne W : Delay
+
+
+======================STATISTICS=========================
+==================FAST PIPELINE===========================
+Total # of cycles: 4 + 366 + 102 + 105 = 577
+Total Instruction entering pipeline = 366
+Finishing up the last instruction: 4
+Dynamic Instruction count = 366
+
+Delay Breakdown:
+         105 Data Hazards
+         102 Control Hazards
+Multi-Cycle Comparison: Fast Pipeline is 815 cycles faster
+Slow Pipeline Comparison: Fast Pipeline is 455 cycles faster
+
+=======================Cache=========================
+Cache Hit  = 37
+Cache Miss  = 27
+ % Hit rate  = 57.8125%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******PROGRAM Y: (b=8,N=2,S=4)******
+
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipeline  : 3
+
+Enter the block size b(# of bytes): 8
+Enter the number of sets S:  4
+Enter N: 2
+Fast Cycle: 0   |PC:  0   ori $8, $ 0, 2   Taking 1 cycle
+F : ori D :   E :   M :   W :
+
+Fast Cycle: 1   |PC:  4   addi $9, $ 0, 96   Taking 1 cycle
+F : addi D : ori E :   M :   W :
+
+Cache MISS!! Loading a block...
+memIndex: 0x2060 Tag: 100000011
+Block = [ 2, 0, ]
+Fast Cycle: 2   |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : addi E : ori M :   W :
+
+Fast Cycle: 3   |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : addi M : ori W :
+
+Fast Cycle: 4   |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 5   |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 6   |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 7   |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 8   |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 9   |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 10  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 7   |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x205c Tag: 100000010
+Block = [ -7, 2, ]
+Fast Cycle: 12  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 13  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 14  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 15  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 16  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 17  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 18  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 19  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 20  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 17  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ -7, 2, ]
+Fast Cycle: 22  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 23  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 24  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 25  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 26  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 27  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 28  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 29  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 30  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 27  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2054 Tag: 100000010
+Block = [ -25, 11, ]
+Fast Cycle: 32  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 33  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 34  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 35  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 36  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 37  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 38  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 39  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 40  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 37  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ -25, 11, ]
+Fast Cycle: 42  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 43  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 44  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 45  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 46  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 47  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 48  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 49  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 50  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 47  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x204c Tag: 100000010
+Block = [ -97, 47, ]
+Fast Cycle: 52  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 53  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 54  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 55  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 56  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 57  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 58  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 59  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 60  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 57  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ -97, 47, ]
+Fast Cycle: 62  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 63  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 64  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 65  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 66  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 67  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 68  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 69  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 70  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 67  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2044 Tag: 100000010
+Block = [ -385, 191, ]
+Fast Cycle: 72  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 73  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 74  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 75  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 76  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 77  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 78  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 79  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 80  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 77  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ -385, 191, ]
+Fast Cycle: 82  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 83  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 84  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 85  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 86  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 87  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 88  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 89  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 90  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 87  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x203c Tag: 100000001
+Block = [ -1537, 767, ]
+Fast Cycle: 92  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 93  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 94  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 95  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 96  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 97  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 98  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 99  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 100 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 97  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -1537, 767, ]
+Fast Cycle: 102 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 103 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 104 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 105 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 106 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 107 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 108 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 109 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 110 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 107 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2034 Tag: 100000001
+Block = [ -6145, 3071, ]
+Fast Cycle: 112 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 113 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 114 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 115 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 116 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 117 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 118 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 119 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 120 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 117 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -6145, 3071, ]
+Fast Cycle: 122 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 123 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 124 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 125 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 126 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 127 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 128 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 129 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 130 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 127 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x202c Tag: 100000001
+Block = [ -24577, 12287, ]
+Fast Cycle: 132 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 133 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 134 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 135 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 136 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 137 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 138 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 139 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 140 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 137 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -24577, 12287, ]
+Fast Cycle: 142 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 143 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 144 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 145 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 146 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 147 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 148 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 149 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 150 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 147 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2024 Tag: 100000001
+Block = [ -98305, 49151, ]
+Fast Cycle: 152 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 153 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 154 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 155 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 156 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 157 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 158 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 159 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 160 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 157 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -98305, 49151, ]
+Fast Cycle: 162 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 163 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 164 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 165 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 166 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 167 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 168 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 169 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 170 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 167 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x201c Tag: 100000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 172 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 173 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 174 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 175 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 176 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 177 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 178 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 179 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 180 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 177 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 182 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 183 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 184 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 185 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 186 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 187 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 188 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 189 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 190 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 187 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2014 Tag: 100000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 192 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 193 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 194 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 195 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 196 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 197 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 198 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 199 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 200 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 197 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 202 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 203 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 204 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 205 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 206 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 207 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 208 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 209 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 210 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 207 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x200c Tag: 100000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 212 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 213 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 214 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 215 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 216 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 217 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 218 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 219 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 220 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 217 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 222 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 223 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 224 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 225 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 226 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 227 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 228 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 229 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 230 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 227 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS!! Loading a block...
+memIndex: 0x2004 Tag: 100000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 232 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 233 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 234 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 235 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 236 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 237 |PC:  36  addi $8, $ 0, 8312   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 238 |PC:  40  addi $10, $ 0, 8288   Taking 1 cycle
+F : addi D : addi E : beq M : Delay W : Delay
+
+Fast Cycle: 239 |PC:  44  addi $9, $ 0, 8192   Taking 1 cycle
+F : addi D : addi E : addi M : beq W : Delay
+
+Fast Cycle: 240 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : addi E : addi M : addi W : beq
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 241 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : addi M : addi W : addi
+
+Fast Cycle: 242 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : addi W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -25165825, 12582911, ]
+Fast Cycle: 243 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : addi
+
+Fast Cycle: 244 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 245 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 246 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 247 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 248 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 249 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 250 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 251 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 252 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 253 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 254 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 255 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 256 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 257 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 258 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 259 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 260 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 261 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 262 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 263 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 264 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 265 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 266 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 267 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 268 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 269 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 270 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 271 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 272 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 273 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 274 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 275 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS!! Loading a block...
+memIndex: 0x2078 Tag: 100000011
+Block = [ -25165825, 0, ]
+Fast Cycle: 276 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 277 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 278 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 279 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 280 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 281 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 282 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -6291457, 3145727, ]
+Fast Cycle: 283 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 284 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 285 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 286 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 287 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 288 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 289 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 290 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 291 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 292 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 293 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 294 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 295 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -1572865, 786431, ]
+Fast Cycle: 296 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 297 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 298 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 299 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 300 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 301 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 302 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 303 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 304 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 305 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 306 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 307 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 308 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 309 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 310 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 311 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 312 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 313 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 314 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 315 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 316 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT!! Reading a block...
+Tag: 100000011
+Block = [ -25165825, 0, ]
+Fast Cycle: 317 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 318 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 319 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 320 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 321 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 322 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 323 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 324 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 325 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT!! Reading a block...
+Tag: 100000000
+Block = [ -393217, 196607, ]
+Fast Cycle: 326 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 327 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 328 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 329 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 330 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 331 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 332 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 333 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 334 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 335 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 336 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 337 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -98305, 49151, ]
+Fast Cycle: 338 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 339 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 340 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 341 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 342 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 343 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 344 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 345 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 346 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 347 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 348 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -98305, 49151, ]
+Fast Cycle: 349 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 350 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 351 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 352 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 353 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 354 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 355 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 356 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 357 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 358 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS!! Loading a block...
+memIndex: 0x2080 Tag: 100000100
+Block = [ -393217, 0, ]
+Fast Cycle: 359 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 360 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 361 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 362 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 363 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 364 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 365 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache MISS!! Loading a block...
+memIndex: 0x2024 Tag: 100000001
+Block = [ -98305, 49151, ]
+Fast Cycle: 366 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 367 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -24577, 12287, ]
+Fast Cycle: 368 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 369 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 370 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 371 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 372 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 373 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 374 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 375 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 376 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 377 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 378 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -24577, 12287, ]
+Fast Cycle: 379 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 380 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 381 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 382 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 383 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 384 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 385 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 386 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 387 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 388 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 389 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -6145, 3071, ]
+Fast Cycle: 390 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 391 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 392 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 393 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 394 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 395 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 396 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 397 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 398 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 399 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT!! Reading a block...
+Tag: 100000100
+Block = [ -393217, 0, ]
+Fast Cycle: 400 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 401 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 402 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 403 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 404 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 405 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 406 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -6145, 3071, ]
+Fast Cycle: 407 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 408 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ -6145, 3071, ]
+Fast Cycle: 409 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 410 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 411 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 412 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 413 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 414 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 415 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 416 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 417 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 418 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 419 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 420 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS!! Loading a block...
+memIndex: 0x2038 Tag: 100000001
+Block = [ 3071, -1537, ]
+Fast Cycle: 421 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 422 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 423 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 424 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 425 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 426 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 427 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 428 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 429 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 430 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 431 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ 3071, -1537, ]
+Fast Cycle: 432 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 433 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 434 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 435 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 436 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 437 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 438 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 439 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 440 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 441 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS!! Loading a block...
+memIndex: 0x2088 Tag: 100000100
+Block = [ -6145, 0, ]
+Fast Cycle: 442 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 443 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 444 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 445 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 446 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 447 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 448 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000001
+Block = [ 3071, -1537, ]
+Fast Cycle: 449 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 450 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS!! Loading a block...
+memIndex: 0x2040 Tag: 100000010
+Block = [ 767, -385, ]
+Fast Cycle: 451 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 452 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 453 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 454 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 455 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 456 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 457 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 458 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 459 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 460 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 461 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 767, -385, ]
+Fast Cycle: 462 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 463 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 464 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 465 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 466 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 467 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 468 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 469 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 470 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 471 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 472 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS!! Loading a block...
+memIndex: 0x2048 Tag: 100000010
+Block = [ 191, -97, ]
+Fast Cycle: 473 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 474 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 475 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 476 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 477 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 478 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 479 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 480 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 481 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 482 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT!! Reading a block...
+Tag: 100000100
+Block = [ -6145, 0, ]
+Fast Cycle: 483 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 484 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 485 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 486 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 487 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 488 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 489 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 191, -97, ]
+Fast Cycle: 490 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 491 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 191, -97, ]
+Fast Cycle: 492 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 493 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 494 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 495 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 496 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 497 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 498 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 499 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 500 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 501 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 502 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 503 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS!! Loading a block...
+memIndex: 0x2050 Tag: 100000010
+Block = [ 47, -25, ]
+Fast Cycle: 504 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 505 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 506 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 507 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 508 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 509 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 510 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 511 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 512 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 513 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 514 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 47, -25, ]
+Fast Cycle: 515 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 516 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 517 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 518 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 519 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 520 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 521 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 522 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 523 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 524 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS!! Loading a block...
+memIndex: 0x2090 Tag: 100000100
+Block = [ -97, 0, ]
+Fast Cycle: 525 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 526 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 527 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 528 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 529 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 530 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 531 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 47, -25, ]
+Fast Cycle: 532 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 533 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS!! Loading a block...
+memIndex: 0x2058 Tag: 100000010
+Block = [ 11, -7, ]
+Fast Cycle: 534 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 535 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 536 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 537 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 538 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 539 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 540 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 541 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 542 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 543 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 544 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache HIT!! Reading a block...
+Tag: 100000010
+Block = [ 11, -7, ]
+Fast Cycle: 545 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 546 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 547 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 548 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 549 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 550 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 551 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 552 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 553 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 554 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 555 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS!! Loading a block...
+memIndex: 0x2060 Tag: 100000011
+Block = [ 2, 0, ]
+Fast Cycle: 556 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 557 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 558 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 559 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 560 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 561 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 562 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 563 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 564 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 565 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache HIT!! Reading a block...
+Tag: 100000100
+Block = [ -97, 0, ]
+Fast Cycle: 566 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 567 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 568 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 569 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 570 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 571 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 572 |PC:  96  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  96  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  100 beq $0, $ 0, -1   Taking 4 cycle
+F : beq D : Delay E : Delay M : bne W : Delay
+
+
+======================STATISTICS=========================
+==================FAST PIPELINE===========================
+Total # of cycles: 4 + 366 + 102 + 105 = 577
+Total Instruction entering pipeline = 366
+Finishing up the last instruction: 4
+Dynamic Instruction count = 366
+
+Delay Breakdown:
+         105 Data Hazards
+         102 Control Hazards
+Multi-Cycle Comparison: Fast Pipeline is 815 cycles faster
+Slow Pipeline Comparison: Fast Pipeline is 455 cycles faster
+
+=======================Cache=========================
+Cache Hit  = 40
+Cache Miss  = 24
+ % Hit rate  = 62.5%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******PROGRAM Y: (b=4,N=1,S=2)******
+
+1: Debug Mode
+0: Normal Mode : 1
+
+What mode Do u want to run 1:Multi Cycle     2:Slow Pipeline     3:Fast Pipeline  : 3
+
+Enter the block size b(# of bytes): 4
+Enter the number of sets S:  2
+Enter N: 1
+Fast Cycle: 0   |PC:  0   ori $8, $ 0, 2   Taking 1 cycle
+F : ori D :   E :   M :   W :
+
+Fast Cycle: 1   |PC:  4   addi $9, $ 0, 96   Taking 1 cycle
+F : addi D : ori E :   M :   W :
+
+Cache MISS Loading Block...
+memIndex: 0x2060 Tag: 10000001100
+Block = [ 2, ]
+Fast Cycle: 2   |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : addi E : ori M :   W :
+
+Fast Cycle: 3   |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : addi M : ori W :
+
+Fast Cycle: 4   |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 5   |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 6   |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 7   |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 8   |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 9   |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 10  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 7   |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x205c Tag: 10000001011
+Block = [ -7, ]
+Fast Cycle: 12  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 13  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 14  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 15  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 16  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 17  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 18  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 19  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 20  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 17  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2058 Tag: 10000001011
+Block = [ 11, ]
+Fast Cycle: 22  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 23  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 24  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 25  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 26  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 27  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 28  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 29  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 30  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 27  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2054 Tag: 10000001010
+Block = [ -25, ]
+Fast Cycle: 32  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 33  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 34  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 35  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 36  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 37  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 38  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 39  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 40  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 37  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2050 Tag: 10000001010
+Block = [ 47, ]
+Fast Cycle: 42  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 43  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 44  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 45  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 46  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 47  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 48  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 49  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 50  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 47  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x204c Tag: 10000001001
+Block = [ -97, ]
+Fast Cycle: 52  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 53  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 54  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 55  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 56  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 57  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 58  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 59  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 60  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 57  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2048 Tag: 10000001001
+Block = [ 191, ]
+Fast Cycle: 62  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 63  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 64  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 65  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 66  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 67  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 68  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 69  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 70  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 67  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2044 Tag: 10000001000
+Block = [ -385, ]
+Fast Cycle: 72  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 73  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 74  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 75  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 76  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 77  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 78  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 79  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 80  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 77  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2040 Tag: 10000001000
+Block = [ 767, ]
+Fast Cycle: 82  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 83  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 84  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 85  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 86  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 87  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 88  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 89  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 90  |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 87  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x203c Tag: 10000000111
+Block = [ -1537, ]
+Fast Cycle: 92  |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 93  |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 94  |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 95  |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 96  |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 97  |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 98  |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 99  |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 100 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 97  |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2038 Tag: 10000000111
+Block = [ 3071, ]
+Fast Cycle: 102 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 103 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 104 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 105 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 106 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 107 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 108 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 109 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 110 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 107 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2034 Tag: 10000000110
+Block = [ -6145, ]
+Fast Cycle: 112 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 113 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 114 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 115 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 116 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 117 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 118 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 119 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 120 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 117 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2030 Tag: 10000000110
+Block = [ 12287, ]
+Fast Cycle: 122 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 123 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 124 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 125 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 126 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 127 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 128 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 129 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 130 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 127 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x202c Tag: 10000000101
+Block = [ -24577, ]
+Fast Cycle: 132 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 133 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 134 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 135 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 136 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 137 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 138 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 139 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 140 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 137 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2028 Tag: 10000000101
+Block = [ 49151, ]
+Fast Cycle: 142 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 143 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 144 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 145 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 146 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 147 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 148 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 149 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 150 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 147 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2024 Tag: 10000000100
+Block = [ -98305, ]
+Fast Cycle: 152 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 153 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 154 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 155 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 156 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 157 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 158 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 159 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 160 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 157 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2020 Tag: 10000000100
+Block = [ 196607, ]
+Fast Cycle: 162 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 163 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 164 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 165 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 166 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 167 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 168 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 169 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 170 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 167 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x201c Tag: 10000000011
+Block = [ -393217, ]
+Fast Cycle: 172 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 173 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 174 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 175 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 176 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 177 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 178 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 179 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 180 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 177 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2018 Tag: 10000000011
+Block = [ 786431, ]
+Fast Cycle: 182 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 183 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 184 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 185 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 186 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 187 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 188 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 189 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 190 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 187 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2014 Tag: 10000000010
+Block = [ -1572865, ]
+Fast Cycle: 192 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 193 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 194 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 195 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 196 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 197 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 198 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 199 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 200 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 197 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2010 Tag: 10000000010
+Block = [ 3145727, ]
+Fast Cycle: 202 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 203 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 204 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 205 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 206 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 207 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 208 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 209 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 210 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 207 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x200c Tag: 10000000001
+Block = [ -6291457, ]
+Fast Cycle: 212 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 213 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 214 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 215 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 216 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 217 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 218 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 219 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 220 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 217 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2008 Tag: 10000000001
+Block = [ 12582911, ]
+Fast Cycle: 222 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 223 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 224 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 225 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 226 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 227 |PC:  20  addu $8, $ 8, 16417   Taking 1 cycle
+F : addu D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 228 |PC:  24  sub $8, $ 0, 16418   Taking 1 cycle
+F : sub D : addu E : beq M : Delay W : Delay
+
+Fast Cycle: 229 |PC:  28  addi $8, $ 8, -3   Taking 1 cycle
+F : addi D : sub E : addu M : beq W : Delay
+
+Fast Cycle: 230 |PC:  28  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 227 |PC:  32  beq $0, $ 0, -7   Taking 4 cycle
+F : beq D : Delay E : addi M : sub W : addu
+
+Cache MISS Loading Block...
+memIndex: 0x2004 Tag: 10000000000
+Block = [ -25165825, ]
+Fast Cycle: 232 |PC:  8   sw $8, $ 9, 8192   Taking 1 cycle
+F : sw D : beq E : Delay M : addi W : sub
+
+Fast Cycle: 233 |PC:  12  addi $9, $ 9, -4   Taking 1 cycle
+F : addi D : sw E : beq M : Delay W : addi
+
+Fast Cycle: 234 |PC:  12  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 235 |PC:  12  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 236 |PC:  16  beq $0, $ 9, 4   Taking 1 cycle
+F : beq D : Delay E : Delay M : addi W : sw
+
+Fast Cycle: 237 |PC:  36  addi $8, $ 0, 8312   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : addi
+
+Fast Cycle: 238 |PC:  40  addi $10, $ 0, 8288   Taking 1 cycle
+F : addi D : addi E : beq M : Delay W : Delay
+
+Fast Cycle: 239 |PC:  44  addi $9, $ 0, 8192   Taking 1 cycle
+F : addi D : addi E : addi M : beq W : Delay
+
+Fast Cycle: 240 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : addi E : addi M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2000 Tag: 10000000000
+Block = [ 0, ]
+Fast Cycle: 241 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : addi M : addi W : addi
+
+Fast Cycle: 242 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : addi W : addi
+
+Cache HIT  Reading Block...
+Tag: 10000000000
+Block = [ -25165825, ]
+Fast Cycle: 243 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : addi
+
+Fast Cycle: 244 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 245 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 246 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 247 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 248 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 249 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 250 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 251 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 252 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 253 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 254 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2008 Tag: 10000000001
+Block = [ 12582911, ]
+Fast Cycle: 255 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 256 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 257 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 258 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 259 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 260 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 261 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 262 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 263 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 264 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 265 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x200c Tag: 10000000001
+Block = [ -6291457, ]
+Fast Cycle: 266 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 267 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 268 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 269 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 270 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 271 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 272 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 273 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 274 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 275 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2078 Tag: 10000001111
+Block = [ -25165825, ]
+Fast Cycle: 276 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 277 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 278 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 279 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 280 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 281 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 282 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000001
+Block = [ -6291457, ]
+Fast Cycle: 283 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 284 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2010 Tag: 10000000010
+Block = [ 3145727, ]
+Fast Cycle: 285 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 286 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 287 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 288 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 289 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 290 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 291 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 292 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 293 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 294 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 295 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2014 Tag: 10000000010
+Block = [ -1572865, ]
+Fast Cycle: 296 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 297 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 298 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 299 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 300 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 301 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 302 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 303 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 304 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 305 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 306 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2018 Tag: 10000000011
+Block = [ 786431, ]
+Fast Cycle: 307 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 308 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 309 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 310 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 311 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 312 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 313 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 314 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 315 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 316 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x207c Tag: 10000001111
+Block = [ -6291457, ]
+Fast Cycle: 317 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 318 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 319 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 320 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 321 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 322 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 323 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000011
+Block = [ 786431, ]
+Fast Cycle: 324 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 325 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x201c Tag: 10000000011
+Block = [ -393217, ]
+Fast Cycle: 326 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 327 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 328 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 329 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 330 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 331 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 332 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 333 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 334 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 335 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 336 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 337 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2020 Tag: 10000000100
+Block = [ 196607, ]
+Fast Cycle: 338 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 339 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 340 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 341 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 342 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 343 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 344 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 345 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 346 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 347 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 348 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2024 Tag: 10000000100
+Block = [ -98305, ]
+Fast Cycle: 349 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 350 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 351 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 352 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 353 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 354 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 355 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 356 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 357 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 358 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2080 Tag: 10000010000
+Block = [ -393217, ]
+Fast Cycle: 359 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 360 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 361 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 362 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 363 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 364 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 365 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000100
+Block = [ -98305, ]
+Fast Cycle: 366 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 367 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2028 Tag: 10000000101
+Block = [ 49151, ]
+Fast Cycle: 368 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 369 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 370 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 371 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 372 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 373 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 374 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 375 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 376 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 377 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 378 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x202c Tag: 10000000101
+Block = [ -24577, ]
+Fast Cycle: 379 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 380 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 381 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 382 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 383 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 384 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 385 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 386 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 387 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 388 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 389 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2030 Tag: 10000000110
+Block = [ 12287, ]
+Fast Cycle: 390 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 391 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 392 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 393 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 394 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 395 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 396 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 397 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 398 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 399 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2084 Tag: 10000010000
+Block = [ -98305, ]
+Fast Cycle: 400 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 401 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 402 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 403 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 404 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 405 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 406 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000110
+Block = [ 12287, ]
+Fast Cycle: 407 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 408 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2034 Tag: 10000000110
+Block = [ -6145, ]
+Fast Cycle: 409 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 410 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 411 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 412 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 413 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 414 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 415 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 416 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 417 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 418 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 419 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 420 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2038 Tag: 10000000111
+Block = [ 3071, ]
+Fast Cycle: 421 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 422 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 423 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 424 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 425 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 426 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 427 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 428 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 429 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 430 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 431 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x203c Tag: 10000000111
+Block = [ -1537, ]
+Fast Cycle: 432 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 433 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 434 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 435 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 436 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 437 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 438 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 439 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 440 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 441 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2088 Tag: 10000010001
+Block = [ -6145, ]
+Fast Cycle: 442 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 443 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 444 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 445 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 446 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 447 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 448 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000000111
+Block = [ -1537, ]
+Fast Cycle: 449 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 450 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2040 Tag: 10000001000
+Block = [ 767, ]
+Fast Cycle: 451 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 452 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 453 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 454 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 455 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 456 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 457 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 458 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 459 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 460 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 461 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2044 Tag: 10000001000
+Block = [ -385, ]
+Fast Cycle: 462 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 463 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 464 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 465 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 466 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 467 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 468 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 469 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 470 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 471 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 472 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2048 Tag: 10000001001
+Block = [ 191, ]
+Fast Cycle: 473 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 474 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 475 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 476 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 477 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 478 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 479 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 480 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 481 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 482 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x208c Tag: 10000010001
+Block = [ -1537, ]
+Fast Cycle: 483 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 484 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 485 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 486 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 487 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 488 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 489 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000001001
+Block = [ 191, ]
+Fast Cycle: 490 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 491 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x204c Tag: 10000001001
+Block = [ -97, ]
+Fast Cycle: 492 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 493 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 494 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 495 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 496 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 497 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 498 |PC:  72  add $12, $ 0, 22560   Taking 1 cycle
+F : add D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 499 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : add E : beq M : Delay W : Delay
+
+Fast Cycle: 500 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 501 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 502 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : add
+
+Fast Cycle: 503 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2050 Tag: 10000001010
+Block = [ 47, ]
+Fast Cycle: 504 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 505 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 506 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 507 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 508 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 509 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 510 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 511 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 512 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 513 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 514 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2054 Tag: 10000001010
+Block = [ -25, ]
+Fast Cycle: 515 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 516 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 517 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 518 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 519 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 520 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 521 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 522 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 523 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 524 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2090 Tag: 10000010010
+Block = [ -97, ]
+Fast Cycle: 525 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 526 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 527 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 528 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 529 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 530 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 531 |PC:  48  addi $14, $ 0, 3   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : slt
+
+Cache HIT  Reading Block...
+Tag: 10000001010
+Block = [ -25, ]
+Fast Cycle: 532 |PC:  52  lw $11, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 533 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : lw E : addi M : bne W : Delay
+
+Cache MISS Loading Block...
+memIndex: 0x2058 Tag: 10000001011
+Block = [ 11, ]
+Fast Cycle: 534 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : lw M : addi W : bne
+
+Fast Cycle: 535 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 536 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : lw
+
+Fast Cycle: 537 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 538 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 539 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 540 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 541 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 542 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 543 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 544 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x205c Tag: 10000001011
+Block = [ -7, ]
+Fast Cycle: 545 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 546 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 547 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 548 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 549 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 550 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 551 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 552 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 553 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 554 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Fast Cycle: 555 |PC:  56  addi $9, $ 9, 4   Taking 1 cycle
+F : addi D : bne E : Delay M : Delay W : addi
+
+Cache MISS Loading Block...
+memIndex: 0x2060 Tag: 10000001100
+Block = [ 2, ]
+Fast Cycle: 556 |PC:  60  lw $12, $ 9, 0   Taking 1 cycle
+F : lw D : addi E : bne M : Delay W : Delay
+
+Fast Cycle: 557 |PC:  60  Data Hazard: LW-use delay taking 1 cycle
+Fast Cycle: 558 |PC:  64  slt $11, $ 12, 26666   Taking 1 cycle
+F : slt D : Delay E : lw M : addi W : bne
+
+Fast Cycle: 559 |PC:  64  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 560 |PC:  64  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 561 |PC:  68  beq $0, $ 13, 1   Taking 1 cycle
+F : beq D : Delay E : Delay M : slt W : Delay
+
+Fast Cycle: 562 |PC:  76  addi $14, $ 14, -1   Taking 1 cycle
+F : addi D : beq E : Delay M : Delay W : slt
+
+Fast Cycle: 563 |PC:  76  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 564 |PC:  76  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 565 |PC:  80  bne $0, $ 14, -7   Taking 1 cycle
+F : bne D : Delay E : Delay M : addi W : beq
+
+Cache MISS Loading Block...
+memIndex: 0x2094 Tag: 10000010010
+Block = [ -25, ]
+Fast Cycle: 566 |PC:  84  sw $11, $ 8, 0   Taking 1 cycle
+F : sw D : bne E : Delay M : Delay W : addi
+
+Fast Cycle: 567 |PC:  88  addi $8, $ 8, 4   Taking 1 cycle
+F : addi D : sw E : bne M : Delay W : Delay
+
+Fast Cycle: 568 |PC:  92  slt $10, $ 9, 26666   Taking 1 cycle
+F : slt D : addi E : sw M : bne W : Delay
+
+Fast Cycle: 569 |PC:  92  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 570 |PC:  92  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 571 |PC:  96  bne $0, $ 13, -13   Taking 1 cycle
+F : bne D : Delay E : Delay M : slt W : addi
+
+Fast Cycle: 572 |PC:  96  Control Hazard: Taken branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  96  Data Hazard: Compute-branch delay taking 1 cycle
+Fast Cycle: 573 |PC:  100 beq $0, $ 0, -1   Taking 4 cycle
+F : beq D : Delay E : Delay M : bne W : Delay
+
+
+======================STATISTICS=========================
+==================FAST PIPELINE===========================
+Total # of cycles: 4 + 366 + 102 + 105 = 577
+Total Instruction entering pipeline = 366
+Finishing up the last instruction: 4
+Dynamic Instruction count = 366
+
+Delay Breakdown:
+         105 Data Hazards
+         102 Control Hazards
+Multi-Cycle Comparison: Fast Pipeline is 815 cycles faster
+Slow Pipeline Comparison: Fast Pipeline is 455 cycles faster
+
+=======================Cache=========================
+Cache Hit  = 8
+Cache Miss  = 56
+ % Hit rate  = 12.5%

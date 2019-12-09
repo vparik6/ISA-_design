@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f5646f76-a9c5-4a99-95d0-db43eb9cc4b4}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>PytProject4.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{60d038dc-1cd6-4df3-bbd2-1e8a223490af}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+    <Name>ECE_366_P4</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="algo1.txt" />
+    <Content Include="algo2.txt" />
+    <Content Include="case0Hex.txt" />
+    <Content Include="case1Hex.txt" />
+    <Content Include="case2Hex.txt" />
+    <Content Include="case3Hex.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{60d038dc-1cd6-4df3-bbd2-1e8a223490af}\3.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PytProject4.py" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
